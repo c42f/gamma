@@ -1,0 +1,2 @@
+Compiled on Ubuntu 9.04 
+gcc version 4.3.3 (Ubuntu 4.3.3-5ubuntu4)

@@ -1,0 +1,2 @@
+Compiled on WinXP SP 3 using MSVC 2008 Express Edition
+Python 2.6 from Python.org
