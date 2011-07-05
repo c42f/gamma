@@ -106,6 +106,7 @@ class SinglePar(_object):
         except: self.this = this
     __swig_destroy__ = _pygamma.delete_SinglePar
     __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.SinglePar___assign__(*args)
     def SPerror(*args): return _pygamma.SinglePar_SPerror(*args)
     def SPfatality(*args): return _pygamma.SinglePar_SPfatality(*args)
     def setCoord(*args): return _pygamma.SinglePar_setCoord(*args)
@@ -175,6 +176,62 @@ Isotope_size = _pygamma.Isotope_size
 Isotope_PrintListStrings = _pygamma.Isotope_PrintListStrings
 Isotope_AddIsotope = _pygamma.Isotope_AddIsotope
 
+PI = _pygamma.PI
+PI2 = _pygamma.PI2
+GAMMAfatal = _pygamma.GAMMAfatal
+class IsotopeData(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, IsotopeData, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, IsotopeData, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_IsotopeData(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def __assign__(*args): return _pygamma.IsotopeData___assign__(*args)
+    __swig_destroy__ = _pygamma.delete_IsotopeData
+    __del__ = lambda self : None;
+    def qn(*args): return _pygamma.IsotopeData_qn(*args)
+    def HS(*args): return _pygamma.IsotopeData_HS(*args)
+    def momentum(*args): return _pygamma.IsotopeData_momentum(*args)
+    def symbol(*args): return _pygamma.IsotopeData_symbol(*args)
+    def name(*args): return _pygamma.IsotopeData_name(*args)
+    def element(*args): return _pygamma.IsotopeData_element(*args)
+    def number(*args): return _pygamma.IsotopeData_number(*args)
+    def mass(*args): return _pygamma.IsotopeData_mass(*args)
+    def weight(*args): return _pygamma.IsotopeData_weight(*args)
+    def recept(*args): return _pygamma.IsotopeData_recept(*args)
+    def electron(*args): return _pygamma.IsotopeData_electron(*args)
+    def rel_freq(*args): return _pygamma.IsotopeData_rel_freq(*args)
+    def printStrings(*args): return _pygamma.IsotopeData_printStrings(*args)
+IsotopeData_swigregister = _pygamma.IsotopeData_swigregister
+IsotopeData_swigregister(IsotopeData)
+PIx2 = cvar.PIx2
+DEG2RAD = cvar.DEG2RAD
+RAD2DEG = cvar.RAD2DEG
+HZ2RAD = cvar.HZ2RAD
+RAD2HZ = cvar.RAD2HZ
+HZ2GAUSS = cvar.HZ2GAUSS
+GAUSS2HZ = cvar.GAUSS2HZ
+GHZ2GAUSS = cvar.GHZ2GAUSS
+GAUSS2GHZ = cvar.GAUSS2GHZ
+MU_E = cvar.MU_E
+BOHRMAG = cvar.BOHRMAG
+GFREE = cvar.GFREE
+GAMMAe = cvar.GAMMAe
+GAMMA1H = cvar.GAMMA1H
+DEFISO = cvar.DEFISO
+PLANCK = cvar.PLANCK
+HBAR = cvar.HBAR
+query_parameter = _pygamma.query_parameter
+ask_set = _pygamma.ask_set
+GAMMAerror = _pygamma.GAMMAerror
+
+cutWhite = _pygamma.cutWhite
+cutParBlks = _pygamma.cutParBlks
+Gitoa = _pygamma.Gitoa
+Gdec2 = _pygamma.Gdec2
 enable_blockdiag = _pygamma.enable_blockdiag
 disable_blockdiag = _pygamma.disable_blockdiag
 class matrix(_object):
@@ -284,6 +341,13 @@ class matrix(_object):
     def __gt__(*args): return _pygamma.matrix___gt__(*args)
 matrix_swigregister = _pygamma.matrix_swigregister
 matrix_swigregister(matrix)
+cutString = _pygamma.cutString
+cutBlksXBlks = _pygamma.cutBlksXBlks
+cutDouble = _pygamma.cutDouble
+cutInt = _pygamma.cutInt
+Gdec = _pygamma.Gdec
+Gform = _pygamma.Gform
+CenterString = _pygamma.CenterString
 matrix_Header = _pygamma.matrix_Header
 matrix_PrintRI = _pygamma.matrix_PrintRI
 matrix_PrintAll = _pygamma.matrix_PrintAll
@@ -482,6 +546,465 @@ complex_zlength = _pygamma.complex_zlength
 complex_normphase = _pygamma.complex_normphase
 complex_complex_getf = _pygamma.complex_complex_getf
 
+DoubleMag = _pygamma.DoubleMag
+SecUnits = _pygamma.SecUnits
+HzUnits = _pygamma.HzUnits
+analyze = _pygamma.analyze
+TrajTiming = _pygamma.TrajTiming
+class BlochSys(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, BlochSys, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, BlochSys, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_BlochSys(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_BlochSys
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.BlochSys___assign__(*args)
+    def NIso(*args): return _pygamma.BlochSys_NIso(*args)
+    def IsoMaxLength(*args): return _pygamma.BlochSys_IsoMaxLength(*args)
+    def NSpins(*args): return _pygamma.BlochSys_NSpins(*args)
+    def R1(*args): return _pygamma.BlochSys_R1(*args)
+    def T1(*args): return _pygamma.BlochSys_T1(*args)
+    def R2(*args): return _pygamma.BlochSys_R2(*args)
+    def T2(*args): return _pygamma.BlochSys_T2(*args)
+    def LW(*args): return _pygamma.BlochSys_LW(*args)
+    def MaxExchange(*args): return _pygamma.BlochSys_MaxExchange(*args)
+    def Norms(*args): return _pygamma.BlochSys_Norms(*args)
+    def Norm(*args): return _pygamma.BlochSys_Norm(*args)
+    def H(*args): return _pygamma.BlochSys_H(*args)
+    def B(*args): return _pygamma.BlochSys_B(*args)
+    def R(*args): return _pygamma.BlochSys_R(*args)
+    def K(*args): return _pygamma.BlochSys_K(*args)
+    def Meq(*args): return _pygamma.BlochSys_Meq(*args)
+    def Mo(*args): return _pygamma.BlochSys_Mo(*args)
+    def Mx(*args): return _pygamma.BlochSys_Mx(*args)
+    def My(*args): return _pygamma.BlochSys_My(*args)
+    def Mz(*args): return _pygamma.BlochSys_Mz(*args)
+    def Mss(*args): return _pygamma.BlochSys_Mss(*args)
+    def DetectMu(*args): return _pygamma.BlochSys_DetectMu(*args)
+    def DetectMx(*args): return _pygamma.BlochSys_DetectMx(*args)
+    def DetectMy(*args): return _pygamma.BlochSys_DetectMy(*args)
+    def DetectMz(*args): return _pygamma.BlochSys_DetectMz(*args)
+    def size(*args): return _pygamma.BlochSys_size(*args)
+    def read(*args): return _pygamma.BlochSys_read(*args)
+    def ask_read(*args): return _pygamma.BlochSys_ask_read(*args)
+BlochSys_swigregister = _pygamma.BlochSys_swigregister
+BlochSys_swigregister(BlochSys)
+complex0 = cvar.complex0
+complex1 = cvar.complex1
+complexi = cvar.complexi
+Mo_vector = _pygamma.Mo_vector
+
+class MagVec(col_vector):
+    __swig_setmethods__ = {}
+    for _s in [col_vector]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MagVec, name, value)
+    __swig_getmethods__ = {}
+    for _s in [col_vector]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, MagVec, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_MagVec(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def __add__(*args): return _pygamma.MagVec___add__(*args)
+    def __iadd__(*args): return _pygamma.MagVec___iadd__(*args)
+    def __sub__(*args): return _pygamma.MagVec___sub__(*args)
+    def __isub__(*args): return _pygamma.MagVec___isub__(*args)
+    def NComps(*args): return _pygamma.MagVec_NComps(*args)
+    def x(*args): return _pygamma.MagVec_x(*args)
+    def y(*args): return _pygamma.MagVec_y(*args)
+    def z(*args): return _pygamma.MagVec_z(*args)
+    def norm(*args): return _pygamma.MagVec_norm(*args)
+    def theta(*args): return _pygamma.MagVec_theta(*args)
+    def phi(*args): return _pygamma.MagVec_phi(*args)
+    def Norms(*args): return _pygamma.MagVec_Norms(*args)
+    def Norm(*args): return _pygamma.MagVec_Norm(*args)
+    def PSetAdd(*args): return _pygamma.MagVec_PSetAdd(*args)
+    def write(*args): return _pygamma.MagVec_write(*args)
+    def read(*args): return _pygamma.MagVec_read(*args)
+    def ask_read(*args): return _pygamma.MagVec_ask_read(*args)
+    def printStrings(*args): return _pygamma.MagVec_printStrings(*args)
+    def Mx(*args): return _pygamma.MagVec_Mx(*args)
+    def My(*args): return _pygamma.MagVec_My(*args)
+    def Mz(*args): return _pygamma.MagVec_Mz(*args)
+    def MxVec(*args): return _pygamma.MagVec_MxVec(*args)
+    def MyVec(*args): return _pygamma.MagVec_MyVec(*args)
+    def MzVec(*args): return _pygamma.MagVec_MzVec(*args)
+    __swig_destroy__ = _pygamma.delete_MagVec
+    __del__ = lambda self : None;
+MagVec_swigregister = _pygamma.MagVec_swigregister
+MagVec_swigregister(MagVec)
+
+class BlochAcq(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, BlochAcq, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, BlochAcq, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_BlochAcq(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_BlochAcq
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.BlochAcq___assign__(*args)
+    def T(*args): return _pygamma.BlochAcq_T(*args)
+    def F(*args): return _pygamma.BlochAcq_F(*args)
+    def table(*args): return _pygamma.BlochAcq_table(*args)
+    def full_size(*args): return _pygamma.BlochAcq_full_size(*args)
+BlochAcq_swigregister = _pygamma.BlochAcq_swigregister
+BlochAcq_swigregister(BlochAcq)
+
+T_CSA = _pygamma.T_CSA
+T22wh = _pygamma.T22wh
+Clebsch_Gordan = _pygamma.Clebsch_Gordan
+Wigner_3j = _pygamma.Wigner_3j
+class spin_T(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, spin_T, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, spin_T, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_spin_T(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_spin_T
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.spin_T___assign__(*args)
+    def component(*args): return _pygamma.spin_T_component(*args)
+    def rotate(*args): return _pygamma.spin_T_rotate(*args)
+    def Rank(*args): return _pygamma.spin_T_Rank(*args)
+spin_T_swigregister = _pygamma.spin_T_swigregister
+spin_T_swigregister(spin_T)
+T_D = _pygamma.T_D
+T_CS2 = _pygamma.T_CS2
+T_CS = _pygamma.T_CS
+T_RF = _pygamma.T_RF
+T_Q = _pygamma.T_Q
+T1 = _pygamma.T1
+T10 = _pygamma.T10
+T11 = _pygamma.T11
+T22SSirr = _pygamma.T22SSirr
+T2 = _pygamma.T2
+T20 = _pygamma.T20
+T21 = _pygamma.T21
+T22 = _pygamma.T22
+T2SS = _pygamma.T2SS
+T20SS = _pygamma.T20SS
+T21SS = _pygamma.T21SS
+T22SS = _pygamma.T22SS
+T_prod = _pygamma.T_prod
+
+Rmx = _pygamma.Rmx
+class coord(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, coord, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, coord, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_coord(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_coord
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.coord___assign__(*args)
+    def get(*args): return _pygamma.coord_get(*args)
+    def x(*args): return _pygamma.coord_x(*args)
+    def y(*args): return _pygamma.coord_y(*args)
+    def z(*args): return _pygamma.coord_z(*args)
+    def xyz(*args): return _pygamma.coord_xyz(*args)
+    def norm(*args): return _pygamma.coord_norm(*args)
+    def Rad(*args): return _pygamma.coord_Rad(*args)
+    def theta(*args): return _pygamma.coord_theta(*args)
+    def phi(*args): return _pygamma.coord_phi(*args)
+    def invert(*args): return _pygamma.coord_invert(*args)
+    __swig_getmethods__["Rz"] = lambda x: _pygamma.coord_Rz
+    if _newclass:Rz = staticmethod(_pygamma.coord_Rz)
+    __swig_getmethods__["Rx"] = lambda x: _pygamma.coord_Rx
+    if _newclass:Rx = staticmethod(_pygamma.coord_Rx)
+    __swig_getmethods__["Ry"] = lambda x: _pygamma.coord_Ry
+    if _newclass:Ry = staticmethod(_pygamma.coord_Ry)
+    def xrotate(*args): return _pygamma.coord_xrotate(*args)
+    def yrotate(*args): return _pygamma.coord_yrotate(*args)
+    def zrotate(*args): return _pygamma.coord_zrotate(*args)
+    def Ralpha(*args): return _pygamma.coord_Ralpha(*args)
+    def Rbeta(*args): return _pygamma.coord_Rbeta(*args)
+    def Rgamma(*args): return _pygamma.coord_Rgamma(*args)
+    def REuler(*args): return _pygamma.coord_REuler(*args)
+    def rotate(*args): return _pygamma.coord_rotate(*args)
+    def trans_x(*args): return _pygamma.coord_trans_x(*args)
+    def trans_x_ip(*args): return _pygamma.coord_trans_x_ip(*args)
+    def trans_y(*args): return _pygamma.coord_trans_y(*args)
+    def trans_y_ip(*args): return _pygamma.coord_trans_y_ip(*args)
+    def trans_z(*args): return _pygamma.coord_trans_z(*args)
+    def trans_z_ip(*args): return _pygamma.coord_trans_z_ip(*args)
+    def translate(*args): return _pygamma.coord_translate(*args)
+    def translate_ip(*args): return _pygamma.coord_translate_ip(*args)
+    def __add__(*args): return _pygamma.coord___add__(*args)
+    def __sub__(*args): return _pygamma.coord___sub__(*args)
+    def __iadd__(*args): return _pygamma.coord___iadd__(*args)
+    def __isub__(*args): return _pygamma.coord___isub__(*args)
+    def __mul__(*args): return _pygamma.coord___mul__(*args)
+    def __imul__(*args): return _pygamma.coord___imul__(*args)
+    def __div__(*args): return _pygamma.coord___div__(*args)
+    def __idiv__(*args): return _pygamma.coord___idiv__(*args)
+    def __eq__(*args): return _pygamma.coord___eq__(*args)
+    def __ne__(*args): return _pygamma.coord___ne__(*args)
+    def __gt__(*args): return _pygamma.coord___gt__(*args)
+    def __lt__(*args): return _pygamma.coord___lt__(*args)
+    def param(*args): return _pygamma.coord_param(*args)
+    def read(*args): return _pygamma.coord_read(*args)
+    __swig_getmethods__["length"] = lambda x: _pygamma.coord_length
+    if _newclass:length = staticmethod(_pygamma.coord_length)
+    def Cart2Sph(*args): return _pygamma.coord_Cart2Sph(*args)
+    def Sph2Cart(*args): return _pygamma.coord_Sph2Cart(*args)
+    def Cart2Cyl(*args): return _pygamma.coord_Cart2Cyl(*args)
+    def Cyl2Cart(*args): return _pygamma.coord_Cyl2Cart(*args)
+    def Sph2Cyl(*args): return _pygamma.coord_Sph2Cyl(*args)
+    def Cyl2Sph(*args): return _pygamma.coord_Cyl2Sph(*args)
+    __swig_getmethods__["getDefCoord"] = lambda x: _pygamma.coord_getDefCoord
+    if _newclass:getDefCoord = staticmethod(_pygamma.coord_getDefCoord)
+    __swig_getmethods__["setDefCoord"] = lambda x: _pygamma.coord_setDefCoord
+    if _newclass:setDefCoord = staticmethod(_pygamma.coord_setDefCoord)
+    __swig_getmethods__["SetCutoff"] = lambda x: _pygamma.coord_SetCutoff
+    if _newclass:SetCutoff = staticmethod(_pygamma.coord_SetCutoff)
+coord_swigregister = _pygamma.coord_swigregister
+coord_swigregister(coord)
+coord_Rz = _pygamma.coord_Rz
+coord_Rx = _pygamma.coord_Rx
+coord_Ry = _pygamma.coord_Ry
+coord_length = _pygamma.coord_length
+coord_getDefCoord = _pygamma.coord_getDefCoord
+coord_setDefCoord = _pygamma.coord_setDefCoord
+coord_SetCutoff = _pygamma.coord_SetCutoff
+
+class coord_vec(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, coord_vec, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, coord_vec, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_coord_vec(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_coord_vec
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.coord_vec___assign__(*args)
+    def xrotate(*args): return _pygamma.coord_vec_xrotate(*args)
+    def yrotate(*args): return _pygamma.coord_vec_yrotate(*args)
+    def zrotate(*args): return _pygamma.coord_vec_zrotate(*args)
+    def rotate(*args): return _pygamma.coord_vec_rotate(*args)
+    def rotate_ip(*args): return _pygamma.coord_vec_rotate_ip(*args)
+    def translate(*args): return _pygamma.coord_vec_translate(*args)
+    def translate_ip(*args): return _pygamma.coord_vec_translate_ip(*args)
+    def trans_x(*args): return _pygamma.coord_vec_trans_x(*args)
+    def trans_y(*args): return _pygamma.coord_vec_trans_y(*args)
+    def trans_z(*args): return _pygamma.coord_vec_trans_z(*args)
+    def trans_x_ip(*args): return _pygamma.coord_vec_trans_x_ip(*args)
+    def trans_y_ip(*args): return _pygamma.coord_vec_trans_y_ip(*args)
+    def trans_z_ip(*args): return _pygamma.coord_vec_trans_z_ip(*args)
+    def project(*args): return _pygamma.coord_vec_project(*args)
+    def __mul__(*args): return _pygamma.coord_vec___mul__(*args)
+    def __imul__(*args): return _pygamma.coord_vec___imul__(*args)
+    def __div__(*args): return _pygamma.coord_vec___div__(*args)
+    def __idiv__(*args): return _pygamma.coord_vec___idiv__(*args)
+    def __add__(*args): return _pygamma.coord_vec___add__(*args)
+    def __iadd__(*args): return _pygamma.coord_vec___iadd__(*args)
+    def __sub__(*args): return _pygamma.coord_vec___sub__(*args)
+    def __isub__(*args): return _pygamma.coord_vec___isub__(*args)
+    def size(*args): return _pygamma.coord_vec_size(*args)
+    def max_x(*args): return _pygamma.coord_vec_max_x(*args)
+    def max_y(*args): return _pygamma.coord_vec_max_y(*args)
+    def max_z(*args): return _pygamma.coord_vec_max_z(*args)
+    def maxima(*args): return _pygamma.coord_vec_maxima(*args)
+    def max_R(*args): return _pygamma.coord_vec_max_R(*args)
+    def vectors(*args): return _pygamma.coord_vec_vectors(*args)
+    def vectors_f(*args): return _pygamma.coord_vec_vectors_f(*args)
+    def distance(*args): return _pygamma.coord_vec_distance(*args)
+    def distances(*args): return _pygamma.coord_vec_distances(*args)
+    def thetas(*args): return _pygamma.coord_vec_thetas(*args)
+    def phis(*args): return _pygamma.coord_vec_phis(*args)
+    def __call__(*args): return _pygamma.coord_vec___call__(*args)
+    def put(*args): return _pygamma.coord_vec_put(*args)
+    def get(*args): return _pygamma.coord_vec_get(*args)
+    def x(*args): return _pygamma.coord_vec_x(*args)
+    def y(*args): return _pygamma.coord_vec_y(*args)
+    def z(*args): return _pygamma.coord_vec_z(*args)
+    def get_block(*args): return _pygamma.coord_vec_get_block(*args)
+    def put_block(*args): return _pygamma.coord_vec_put_block(*args)
+    def PSetAdd(*args): return _pygamma.coord_vec_PSetAdd(*args)
+    def is_zero(*args): return _pygamma.coord_vec_is_zero(*args)
+    def ask_read(*args): return _pygamma.coord_vec_ask_read(*args)
+    def read(*args): return _pygamma.coord_vec_read(*args)
+    def Cart2Sph(*args): return _pygamma.coord_vec_Cart2Sph(*args)
+    def Sph2Cart(*args): return _pygamma.coord_vec_Sph2Cart(*args)
+    def Cart2Cyl(*args): return _pygamma.coord_vec_Cart2Cyl(*args)
+    def Cyl2Cart(*args): return _pygamma.coord_vec_Cyl2Cart(*args)
+    def Sph2Cyl(*args): return _pygamma.coord_vec_Sph2Cyl(*args)
+    def Cyl2Sph(*args): return _pygamma.coord_vec_Cyl2Sph(*args)
+coord_vec_swigregister = _pygamma.coord_vec_swigregister
+coord_vec_swigregister(coord_vec)
+UnitX = cvar.UnitX
+UnitY = cvar.UnitY
+UnitZ = cvar.UnitZ
+coord0 = cvar.coord0
+
+class ExchProcM(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, ExchProcM, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, ExchProcM, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["KRate"] = _pygamma.ExchProcM_KRate_set
+    __swig_getmethods__["KRate"] = _pygamma.ExchProcM_KRate_get
+    if _newclass:KRate = _swig_property(_pygamma.ExchProcM_KRate_get, _pygamma.ExchProcM_KRate_set)
+    __swig_setmethods__["Spins"] = _pygamma.ExchProcM_Spins_set
+    __swig_getmethods__["Spins"] = _pygamma.ExchProcM_Spins_get
+    if _newclass:Spins = _swig_property(_pygamma.ExchProcM_Spins_get, _pygamma.ExchProcM_Spins_set)
+    def XPerror(*args): return _pygamma.ExchProcM_XPerror(*args)
+    def XPfatal(*args): return _pygamma.ExchProcM_XPfatal(*args)
+    def getExch(*args): return _pygamma.ExchProcM_getExch(*args)
+    def parseExch(*args): return _pygamma.ExchProcM_parseExch(*args)
+    def getComps(*args): return _pygamma.ExchProcM_getComps(*args)
+    def getRate(*args): return _pygamma.ExchProcM_getRate(*args)
+    def getXP(*args): return _pygamma.ExchProcM_getXP(*args)
+    def setXP(*args): return _pygamma.ExchProcM_setXP(*args)
+    def CCheck(*args): return _pygamma.ExchProcM_CCheck(*args)
+    def FCheck(*args): return _pygamma.ExchProcM_FCheck(*args)
+    def __init__(self, *args): 
+        this = _pygamma.new_ExchProcM(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def __assign__(*args): return _pygamma.ExchProcM___assign__(*args)
+    __swig_destroy__ = _pygamma.delete_ExchProcM
+    __del__ = lambda self : None;
+    def Kex(*args): return _pygamma.ExchProcM_Kex(*args)
+    def NComps(*args): return _pygamma.ExchProcM_NComps(*args)
+    def NSpins(*args): return _pygamma.ExchProcM_NSpins(*args)
+    def Comp(*args): return _pygamma.ExchProcM_Comp(*args)
+    def mixes(*args): return _pygamma.ExchProcM_mixes(*args)
+    def involves(*args): return _pygamma.ExchProcM_involves(*args)
+    def read(*args): return _pygamma.ExchProcM_read(*args)
+    def ExchStr(*args): return _pygamma.ExchProcM_ExchStr(*args)
+ExchProcM_swigregister = _pygamma.ExchProcM_swigregister
+ExchProcM_swigregister(ExchProcM)
+Exponential = _pygamma.Exponential
+DExponential = _pygamma.DExponential
+Exponen_cut = _pygamma.Exponen_cut
+
+ask_Lorentzian = _pygamma.ask_Lorentzian
+A11 = _pygamma.A11
+class space_T(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, space_T, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, space_T, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_space_T(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_space_T
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.space_T___assign__(*args)
+    def PASys(*args): return _pygamma.space_T_PASys(*args)
+    def PASys_EA(*args): return _pygamma.space_T_PASys_EA(*args)
+    def iso(*args): return _pygamma.space_T_iso(*args)
+    def delz(*args): return _pygamma.space_T_delz(*args)
+    def eta(*args): return _pygamma.space_T_eta(*args)
+    def alpha(*args): return _pygamma.space_T_alpha(*args)
+    def beta(*args): return _pygamma.space_T_beta(*args)
+    def gamma(*args): return _pygamma.space_T_gamma(*args)
+    def exists(*args): return _pygamma.space_T_exists(*args)
+    def Rank(*args): return _pygamma.space_T_Rank(*args)
+    def component(*args): return _pygamma.space_T_component(*args)
+    def Ccomponent(*args): return _pygamma.space_T_Ccomponent(*args)
+    def rotate(*args): return _pygamma.space_T_rotate(*args)
+    def param(*args): return _pygamma.space_T_param(*args)
+    def write(*args): return _pygamma.space_T_write(*args)
+    def read(*args): return _pygamma.space_T_read(*args)
+space_T_swigregister = _pygamma.space_T_swigregister
+space_T_swigregister(space_T)
+Lorentz_cut = _pygamma.Lorentz_cut
+Lorentz_int = _pygamma.Lorentz_int
+read_Lorentzian = _pygamma.read_Lorentzian
+DLorentzian = _pygamma.DLorentzian
+A1 = _pygamma.A1
+SphA1 = _pygamma.SphA1
+A2 = _pygamma.A2
+A20 = _pygamma.A20
+A21 = _pygamma.A21
+A22 = _pygamma.A22
+T_comp = _pygamma.T_comp
+T_mult = _pygamma.T_mult
+T_rot = _pygamma.T_rot
+
+Y_fatality = _pygamma.Y_fatality
+Y00rad = _pygamma.Y00rad
+Y10rad = _pygamma.Y10rad
+Y11rad = _pygamma.Y11rad
+Y1m1rad = _pygamma.Y1m1rad
+Y20rad = _pygamma.Y20rad
+Y21rad = _pygamma.Y21rad
+Y2m1rad = _pygamma.Y2m1rad
+Y22rad = _pygamma.Y22rad
+Y2m2rad = _pygamma.Y2m2rad
+Y30rad = _pygamma.Y30rad
+Y31rad = _pygamma.Y31rad
+Y3m1rad = _pygamma.Y3m1rad
+Y32rad = _pygamma.Y32rad
+Y3m2rad = _pygamma.Y3m2rad
+Y33rad = _pygamma.Y33rad
+Y3m3rad = _pygamma.Y3m3rad
+Ylmrad = _pygamma.Ylmrad
+Y00 = _pygamma.Y00
+Y10 = _pygamma.Y10
+Y11 = _pygamma.Y11
+Y1m1 = _pygamma.Y1m1
+Y20 = _pygamma.Y20
+Y21 = _pygamma.Y21
+Y2m1 = _pygamma.Y2m1
+Y22 = _pygamma.Y22
+Y2m2 = _pygamma.Y2m2
+Y30 = _pygamma.Y30
+Y31 = _pygamma.Y31
+Y3m1 = _pygamma.Y3m1
+Y32 = _pygamma.Y32
+Y3m2 = _pygamma.Y3m2
+Y33 = _pygamma.Y33
+Y3m3 = _pygamma.Y3m3
+Ylm = _pygamma.Ylm
+Wigner_error = _pygamma.Wigner_error
+Wigner_fatality = _pygamma.Wigner_fatality
+d0 = _pygamma.d0
+dm1half = _pygamma.dm1half
+d11 = _pygamma.d11
+d10 = _pygamma.d10
+d1m1 = _pygamma.d1m1
+d1 = _pygamma.d1
+d22 = _pygamma.d22
+d21 = _pygamma.d21
+d20 = _pygamma.d20
+d2m1 = _pygamma.d2m1
+d2m2 = _pygamma.d2m2
+d2 = _pygamma.d2
+fact = _pygamma.fact
+dJ_int = _pygamma.dJ_int
+dJ_half_int = _pygamma.dJ_half_int
+D0 = _pygamma.D0
+D1half = _pygamma.D1half
+D1 = _pygamma.D1
+D2 = _pygamma.D2
+sinc = _pygamma.sinc
+square_wave = _pygamma.square_wave
 class spin_sys(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, spin_sys, name, value)
@@ -496,6 +1019,7 @@ class spin_sys(_object):
         except: self.this = this
     __swig_destroy__ = _pygamma.delete_spin_sys
     __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.spin_sys___assign__(*args)
     def spins(*args): return _pygamma.spin_sys_spins(*args)
     def spinpairs(*args): return _pygamma.spin_sys_spinpairs(*args)
     def HS(*args): return _pygamma.spin_sys_HS(*args)
@@ -544,9 +1068,20 @@ class spin_sys(_object):
     def SAMStrings(*args): return _pygamma.spin_sys_SAMStrings(*args)
 spin_sys_swigregister = _pygamma.spin_sys_swigregister
 spin_sys_swigregister(spin_sys)
-complex0 = cvar.complex0
-complex1 = cvar.complex1
-complexi = cvar.complexi
+Y_error = _pygamma.Y_error
+d1half = _pygamma.d1half
+dJ = _pygamma.dJ
+DJ = _pygamma.DJ
+exponential_multiply = _pygamma.exponential_multiply
+exponential = _pygamma.exponential
+Gaussian = _pygamma.Gaussian
+Hamming = _pygamma.Hamming
+Hanning = _pygamma.Hanning
+hyperbol_sec = _pygamma.hyperbol_sec
+Kaiser = _pygamma.Kaiser
+Lorentzian = _pygamma.Lorentzian
+sin_square = _pygamma.sin_square
+Noise = _pygamma.Noise
 
 class spin_system(spin_sys):
     __swig_setmethods__ = {}
@@ -562,6 +1097,7 @@ class spin_system(spin_sys):
         except: self.this = this
     __swig_destroy__ = _pygamma.delete_spin_system
     __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.spin_system___assign__(*args)
     def shifts(*args): return _pygamma.spin_system_shifts(*args)
     def shift(*args): return _pygamma.spin_system_shift(*args)
     def maxShift(*args): return _pygamma.spin_system_maxShift(*args)
@@ -687,13 +1223,9 @@ gen_op_swigregister = _pygamma.gen_op_swigregister
 gen_op_swigregister(gen_op)
 
 I_gen_op = _pygamma.I_gen_op
-Hcs = _pygamma.Hcs
-Hcs_lab = _pygamma.Hcs_lab
 HJw = _pygamma.HJw
-HJ = _pygamma.HJ
 HJwh = _pygamma.HJwh
 HJd = _pygamma.HJd
-Ho = _pygamma.Ho
 How = _pygamma.How
 Ho_lab = _pygamma.Ho_lab
 Hg = _pygamma.Hg
@@ -702,12 +1234,6 @@ HAw = _pygamma.HAw
 HQsec = _pygamma.HQsec
 SOpCmpfatal = _pygamma.SOpCmpfatal
 Iu = _pygamma.Iu
-Ie = _pygamma.Ie
-Iz = _pygamma.Iz
-Ix = _pygamma.Ix
-Iy = _pygamma.Iy
-Ip = _pygamma.Ip
-Im = _pygamma.Im
 Ia = _pygamma.Ia
 Ib = _pygamma.Ib
 Ipol = _pygamma.Ipol
@@ -715,8 +1241,6 @@ Fe_sp = _pygamma.Fe_sp
 Fx_sp = _pygamma.Fx_sp
 Fy_sp = _pygamma.Fy_sp
 Fz_sp = _pygamma.Fz_sp
-Fp_sp = _pygamma.Fp_sp
-Fm_sp = _pygamma.Fm_sp
 Fa_sp = _pygamma.Fa_sp
 Fb_sp = _pygamma.Fb_sp
 Fpol_sp = _pygamma.Fpol_sp
@@ -732,7 +1256,6 @@ sort_LOp_basis = _pygamma.sort_LOp_basis
 sort_Op_basis = _pygamma.sort_Op_basis
 mqt_v = _pygamma.mqt_v
 wavefunction = _pygamma.wavefunction
-wavefunctions = _pygamma.wavefunctions
 vecmax = _pygamma.vecmax
 integral = _pygamma.integral
 lwhh = _pygamma.lwhh
@@ -755,6 +1278,7 @@ class basis(_object):
         except: self.this = this
     __swig_destroy__ = _pygamma.delete_basis
     __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.basis___assign__(*args)
     def size(*args): return _pygamma.basis_size(*args)
     def dim(*args): return _pygamma.basis_dim(*args)
     def name(*args): return _pygamma.basis_name(*args)
@@ -779,25 +1303,14 @@ H1 = _pygamma.H1
 Heff = _pygamma.Heff
 SOpCmperror = _pygamma.SOpCmperror
 Fpol = _pygamma.Fpol
-Fe = _pygamma.Fe
-Fx = _pygamma.Fx
-Fy = _pygamma.Fy
-Fz = _pygamma.Fz
-Fp = _pygamma.Fp
-Fm = _pygamma.Fm
 Fa = _pygamma.Fa
 Fb = _pygamma.Fb
 Faxis = _pygamma.Faxis
 Fpol_gen_new = _pygamma.Fpol_gen_new
-sigma_eq = _pygamma.sigma_eq
 query_isotope = _pygamma.query_isotope
 query_offset = _pygamma.query_offset
 Ixpuls = _pygamma.Ixpuls
-Iypuls = _pygamma.Iypuls
 Ixypuls = _pygamma.Ixypuls
-Ixpuls_U = _pygamma.Ixpuls_U
-Iypuls_U = _pygamma.Iypuls_U
-Ixypuls_U = _pygamma.Ixypuls_U
 
 prop = _pygamma.prop
 prop_ip = _pygamma.prop_ip
@@ -813,6 +1326,7 @@ class HSprop(_object):
         except: self.this = this
     __swig_destroy__ = _pygamma.delete_HSprop
     __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.HSprop___assign__(*args)
     def time(*args): return _pygamma.HSprop_time(*args)
     def length(*args): return _pygamma.HSprop_length(*args)
     def dim(*args): return _pygamma.HSprop_dim(*args)
@@ -836,7 +1350,6 @@ class HSprop(_object):
     def __gt__(*args): return _pygamma.HSprop___gt__(*args)
 HSprop_swigregister = _pygamma.HSprop_swigregister
 HSprop_swigregister(HSprop)
-evolve = _pygamma.evolve
 evolve_ip = _pygamma.evolve_ip
 
 class spin_op(_object):
@@ -851,10 +1364,11 @@ class spin_op(_object):
         except: self.this = this
     __swig_destroy__ = _pygamma.delete_spin_op
     __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.spin_op___assign__(*args)
     def __neg__(*args): return _pygamma.spin_op___neg__(*args)
     def __add__(*args): return _pygamma.spin_op___add__(*args)
-    def __iadd__(*args): return _pygamma.spin_op___iadd__(*args)
     def __isub__(*args): return _pygamma.spin_op___isub__(*args)
+    def __iadd__(*args): return _pygamma.spin_op___iadd__(*args)
     def __imul__(*args): return _pygamma.spin_op___imul__(*args)
     def __idiv__(*args): return _pygamma.spin_op___idiv__(*args)
     def exp(*args): return _pygamma.spin_op_exp(*args)
@@ -871,9 +1385,100 @@ spin_op_swigregister(spin_op)
 PulSfatality = _pygamma.PulSfatality
 Spul_axis = _pygamma.Spul_axis
 Spul_U_axis = _pygamma.Spul_U_axis
+qStatel = _pygamma.qStatel
+PulSherror = _pygamma.PulSherror
+PulShfatality = _pygamma.PulShfatality
+Shpul_axis = _pygamma.Shpul_axis
+Shpul_U_axis = _pygamma.Shpul_U_axis
+class genoprep(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, genoprep, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, genoprep, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["RepMx"] = _pygamma.genoprep_RepMx_set
+    __swig_getmethods__["RepMx"] = _pygamma.genoprep_RepMx_get
+    if _newclass:RepMx = _swig_property(_pygamma.genoprep_RepMx_get, _pygamma.genoprep_RepMx_set)
+    __swig_setmethods__["RepBs"] = _pygamma.genoprep_RepBs_set
+    __swig_getmethods__["RepBs"] = _pygamma.genoprep_RepBs_get
+    if _newclass:RepBs = _swig_property(_pygamma.genoprep_RepBs_get, _pygamma.genoprep_RepBs_set)
+    __swig_setmethods__["RepPty"] = _pygamma.genoprep_RepPty_set
+    __swig_getmethods__["RepPty"] = _pygamma.genoprep_RepPty_get
+    if _newclass:RepPty = _swig_property(_pygamma.genoprep_RepPty_get, _pygamma.genoprep_RepPty_set)
+    __swig_setmethods__["BSPrnt"] = _pygamma.genoprep_BSPrnt_set
+    __swig_getmethods__["BSPrnt"] = _pygamma.genoprep_BSPrnt_get
+    if _newclass:BSPrnt = _swig_property(_pygamma.genoprep_BSPrnt_get, _pygamma.genoprep_BSPrnt_set)
+    def OpReperror(*args): return _pygamma.genoprep_OpReperror(*args)
+    def OpRepfatal(*args): return _pygamma.genoprep_OpRepfatal(*args)
+    def __init__(self, *args): 
+        this = _pygamma.new_genoprep(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_genoprep
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.genoprep___assign__(*args)
+    def OpRepCheck(*args): return _pygamma.genoprep_OpRepCheck(*args)
+    def write(*args): return _pygamma.genoprep_write(*args)
+    def read(*args): return _pygamma.genoprep_read(*args)
+    def __eq__(*args): return _pygamma.genoprep___eq__(*args)
+    def __ne__(*args): return _pygamma.genoprep___ne__(*args)
+    def __lt__(*args): return _pygamma.genoprep___lt__(*args)
+    def __gt__(*args): return _pygamma.genoprep___gt__(*args)
+genoprep_swigregister = _pygamma.genoprep_swigregister
+genoprep_swigregister(genoprep)
+PulSerror = _pygamma.PulSerror
+Sxpuls = _pygamma.Sxpuls
+SxpulsB = _pygamma.SxpulsB
+Sypuls = _pygamma.Sypuls
+SypulsB = _pygamma.SypulsB
+SxpulsB_U = _pygamma.SxpulsB_U
+SypulsB_U = _pygamma.SypulsB_U
+Sxypuls = _pygamma.Sxypuls
+SxypulsB = _pygamma.SxypulsB
+Sxypuls_U = _pygamma.Sxypuls_U
+SxypulsB_U = _pygamma.SxypulsB_U
+Spul_plane = _pygamma.Spul_plane
+Spul_U_plane = _pygamma.Spul_U_plane
+alphabeta = cvar.alphabeta
+tref_labels = _pygamma.tref_labels
+tran_types = _pygamma.tran_types
+trev_labels = _pygamma.trev_labels
+ev_select = _pygamma.ev_select
+tr_select = _pygamma.tr_select
+Shxpuls = _pygamma.Shxpuls
+Shxpuls_U = _pygamma.Shxpuls_U
+Shypuls = _pygamma.Shypuls
+Shypuls_U = _pygamma.Shypuls_U
+Shxypuls = _pygamma.Shxypuls
+Shxypuls_U = _pygamma.Shxypuls_U
+ShxpulsB = _pygamma.ShxpulsB
+ShxpulsB_U = _pygamma.ShxpulsB_U
+ShypulsB = _pygamma.ShypulsB
+ShypulsB_U = _pygamma.ShypulsB_U
+ShxypulsB = _pygamma.ShxypulsB
+ShxypulsB_U = _pygamma.ShxypulsB_U
+Shpul_plane = _pygamma.Shpul_plane
+Shpul_U_plane = _pygamma.Shpul_U_plane
+Prod_base_dec = _pygamma.Prod_base_dec
+
+Rx_sp = _pygamma.Rx_sp
+Ry_sp = _pygamma.Ry_sp
+Rz_sp = _pygamma.Rz_sp
+Raxis_sp = _pygamma.Raxis_sp
+Rxy_sp = _pygamma.Rxy_sp
+Ryz_sp = _pygamma.Ryz_sp
+Rzx_sp = _pygamma.Rzx_sp
+Rplane_sp = _pygamma.Rplane_sp
+Rxyz_sp = _pygamma.Rxyz_sp
+Rspace = _pygamma.Rspace
+R_Euler_sp = _pygamma.R_Euler_sp
+R_Euler_plane = _pygamma.R_Euler_plane
+Ixy = _pygamma.Ixy
+Fxy_sp = _pygamma.Fxy_sp
+Fplane = _pygamma.Fplane
+RotSpinOp = _pygamma.RotSpinOp
 left = _pygamma.left
 right = _pygamma.right
-Hsuper = _pygamma.Hsuper
 U_transform = _pygamma.U_transform
 commutator = _pygamma.commutator
 class super_op(_object):
@@ -926,35 +1531,44 @@ class super_op(_object):
     def read(*args): return _pygamma.super_op_read(*args)
 super_op_swigregister = _pygamma.super_op_swigregister
 super_op_swigregister(super_op)
-PulSerror = _pygamma.PulSerror
-Sxpuls = _pygamma.Sxpuls
-SxpulsB = _pygamma.SxpulsB
-Sypuls = _pygamma.Sypuls
-SypulsB = _pygamma.SypulsB
-Sxpuls_U = _pygamma.Sxpuls_U
-SxpulsB_U = _pygamma.SxpulsB_U
-Sypuls_U = _pygamma.Sypuls_U
-SypulsB_U = _pygamma.SypulsB_U
-Sxypuls = _pygamma.Sxypuls
-SxypulsB = _pygamma.SxypulsB
-Sxypuls_U = _pygamma.Sxypuls_U
-SxypulsB_U = _pygamma.SxypulsB_U
-Spul_plane = _pygamma.Spul_plane
-Spul_U_plane = _pygamma.Spul_U_plane
+GenericD = _pygamma.GenericD
+detector = _pygamma.detector
+Mxy = _pygamma.Mxy
+detector_sp = _pygamma.detector_sp
+Mxy_sp = _pygamma.Mxy_sp
+Rx = _pygamma.Rx
+Ry = _pygamma.Ry
+Rxy = _pygamma.Rxy
+Ryz = _pygamma.Ryz
+Rzx = _pygamma.Rzx
+Rplane = _pygamma.Rplane
+Rxyz = _pygamma.Rxyz
+R_Euler = _pygamma.R_Euler
+Fxy = _pygamma.Fxy
+Fp_sp = _pygamma.Fp_sp
+Fm_sp = _pygamma.Fm_sp
+Ie = _pygamma.Ie
+Ix = _pygamma.Ix
+Iy = _pygamma.Iy
+Iz = _pygamma.Iz
+Ip = _pygamma.Ip
+Im = _pygamma.Im
+Raxis = _pygamma.Raxis
 d_commutator = _pygamma.d_commutator
 
-class sys_dynamic(spin_system):
+class sys_dynamic(spin_system,coord_vec):
     __swig_setmethods__ = {}
-    for _s in [spin_system]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    for _s in [spin_system,coord_vec]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
     __setattr__ = lambda self, name, value: _swig_setattr(self, sys_dynamic, name, value)
     __swig_getmethods__ = {}
-    for _s in [spin_system]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    for _s in [spin_system,coord_vec]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
     __getattr__ = lambda self, name: _swig_getattr(self, sys_dynamic, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
         this = _pygamma.new_sys_dynamic(*args)
         try: self.this.append(this)
         except: self.this = this
+    def __assign__(*args): return _pygamma.sys_dynamic___assign__(*args)
     __swig_destroy__ = _pygamma.delete_sys_dynamic
     __del__ = lambda self : None;
     def shifts(*args): return _pygamma.sys_dynamic_shifts(*args)
@@ -1010,6 +1624,63 @@ class sys_dynamic(spin_system):
 sys_dynamic_swigregister = _pygamma.sys_dynamic_swigregister
 sys_dynamic_swigregister(sys_dynamic)
 
+SigmaEq = _pygamma.SigmaEq
+class densop(gen_op):
+    __swig_setmethods__ = {}
+    for _s in [gen_op]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, densop, name, value)
+    __swig_getmethods__ = {}
+    for _s in [gen_op]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, densop, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_densop(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_densop
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.densop___assign__(*args)
+    def length(*args): return _pygamma.densop_length(*args)
+    def SetTrace(*args): return _pygamma.densop_SetTrace(*args)
+densop_swigregister = _pygamma.densop_swigregister
+densop_swigregister(densop)
+SigmaSS = _pygamma.SigmaSS
+
+class LSprop(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, LSprop, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, LSprop, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_LSprop(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_LSprop
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.LSprop___assign__(*args)
+    def time(*args): return _pygamma.LSprop_time(*args)
+    def dim(*args): return _pygamma.LSprop_dim(*args)
+    def HS(*args): return _pygamma.LSprop_HS(*args)
+    def LS(*args): return _pygamma.LSprop_LS(*args)
+    def LOp(*args): return _pygamma.LSprop_LOp(*args)
+    def L(*args): return _pygamma.LSprop_L(*args)
+    def length(*args): return _pygamma.LSprop_length(*args)
+    def SetEBR(*args): return _pygamma.LSprop_SetEBR(*args)
+    def SetBasis(*args): return _pygamma.LSprop_SetBasis(*args)
+    def evolve(*args): return _pygamma.LSprop_evolve(*args)
+    def __mul__(*args): return _pygamma.LSprop___mul__(*args)
+    def __imul__(*args): return _pygamma.LSprop___imul__(*args)
+    def __iand__(*args): return _pygamma.LSprop___iand__(*args)
+LSprop_swigregister = _pygamma.LSprop_swigregister
+LSprop_swigregister(LSprop)
+R_prop = _pygamma.R_prop
+
+UOrderMQC = _pygamma.UOrderMQC
+invert_it = _pygamma.invert_it
+LU_decomp = _pygamma.LU_decomp
+LU_backsub = _pygamma.LU_backsub
+LU_invert = _pygamma.LU_invert
 class StringVector(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, StringVector, name, value)
@@ -1055,6 +1726,16 @@ class StringVector(_object):
     __del__ = lambda self : None;
 StringVector_swigregister = _pygamma.StringVector_swigregister
 StringVector_swigregister(StringVector)
+FIDx = _pygamma.FIDx
+FIDrot = _pygamma.FIDrot
+wf_labels = _pygamma.wf_labels
+ev_labels = _pygamma.ev_labels
+wavefunctions = _pygamma.wavefunctions
+eigensystem = _pygamma.eigensystem
+lsprint = _pygamma.lsprint
+eigenvalues = _pygamma.eigenvalues
+OrderMQC = _pygamma.OrderMQC
+solve_it = _pygamma.solve_it
 
 class IntVector(_object):
     __swig_setmethods__ = {}
@@ -1160,6 +1841,7 @@ class TTable1D(_object):
         except: self.this = this
     __swig_destroy__ = _pygamma.delete_TTable1D
     __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.TTable1D___assign__(*args)
     def center(*args): return _pygamma.TTable1D_center(*args)
     def offset(*args): return _pygamma.TTable1D_offset(*args)
     def FRscale(*args): return _pygamma.TTable1D_FRscale(*args)
@@ -1237,6 +1919,7 @@ class acquire1D(_object):
         except: self.this = this
     __swig_destroy__ = _pygamma.delete_acquire1D
     __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.acquire1D___assign__(*args)
     def L(*args): return _pygamma.acquire1D_L(*args)
     def D(*args): return _pygamma.acquire1D_D(*args)
     def TTable(*args): return _pygamma.acquire1D_TTable(*args)
@@ -1245,6 +1928,7 @@ class acquire1D(_object):
     def F(*args): return _pygamma.acquire1D_F(*args)
     def FD(*args): return _pygamma.acquire1D_FD(*args)
     def table(*args): return _pygamma.acquire1D_table(*args)
+    def table_snapshot(*args): return _pygamma.acquire1D_table_snapshot(*args)
     def offset(*args): return _pygamma.acquire1D_offset(*args)
     def FRscale(*args): return _pygamma.acquire1D_FRscale(*args)
     def Iscale(*args): return _pygamma.acquire1D_Iscale(*args)
@@ -1264,6 +1948,196 @@ class acquire1D(_object):
 acquire1D_swigregister = _pygamma.acquire1D_swigregister
 acquire1D_swigregister(acquire1D)
 
+class RBasic(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, RBasic, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, RBasic, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_RBasic(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_RBasic
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.RBasic___assign__(*args)
+    def spins(*args): return _pygamma.RBasic_spins(*args)
+    def HS(*args): return _pygamma.RBasic_HS(*args)
+    def T1(*args): return _pygamma.RBasic_T1(*args)
+    def T2(*args): return _pygamma.RBasic_T2(*args)
+    def R1(*args): return _pygamma.RBasic_R1(*args)
+    def R2(*args): return _pygamma.RBasic_R2(*args)
+    def LW(*args): return _pygamma.RBasic_LW(*args)
+    def RB(*args): return _pygamma.RBasic_RB(*args)
+    def T1s(*args): return _pygamma.RBasic_T1s(*args)
+    def T2s(*args): return _pygamma.RBasic_T2s(*args)
+    def R1s(*args): return _pygamma.RBasic_R1s(*args)
+    def R2s(*args): return _pygamma.RBasic_R2s(*args)
+    def LWs(*args): return _pygamma.RBasic_LWs(*args)
+    def RBRates(*args): return _pygamma.RBasic_RBRates(*args)
+    def SetSystem(*args): return _pygamma.RBasic_SetSystem(*args)
+    def SetH0(*args): return _pygamma.RBasic_SetH0(*args)
+    def SetDet(*args): return _pygamma.RBasic_SetDet(*args)
+    def SetSigInf(*args): return _pygamma.RBasic_SetSigInf(*args)
+    def R2Mx(*args): return _pygamma.RBasic_R2Mx(*args)
+    def R2LOp(*args): return _pygamma.RBasic_R2LOp(*args)
+    def R1LOp(*args): return _pygamma.RBasic_R1LOp(*args)
+    def SigmaT1(*args): return _pygamma.RBasic_SigmaT1(*args)
+    def SigmaT2(*args): return _pygamma.RBasic_SigmaT2(*args)
+    def SigmaC(*args): return _pygamma.RBasic_SigmaC(*args)
+    def SigmaCEq(*args): return _pygamma.RBasic_SigmaCEq(*args)
+    def RC(*args): return _pygamma.RBasic_RC(*args)
+    def HC(*args): return _pygamma.RBasic_HC(*args)
+    def Sigma(*args): return _pygamma.RBasic_Sigma(*args)
+    def ReadT2(*args): return _pygamma.RBasic_ReadT2(*args)
+    def ReadT1(*args): return _pygamma.RBasic_ReadT1(*args)
+    def ReadLW(*args): return _pygamma.RBasic_ReadLW(*args)
+    def ReadR2(*args): return _pygamma.RBasic_ReadR2(*args)
+    def ReadR1(*args): return _pygamma.RBasic_ReadR1(*args)
+    def ReadPar(*args): return _pygamma.RBasic_ReadPar(*args)
+    def ReadT2s(*args): return _pygamma.RBasic_ReadT2s(*args)
+    def ReadT1s(*args): return _pygamma.RBasic_ReadT1s(*args)
+    def ReadLWs(*args): return _pygamma.RBasic_ReadLWs(*args)
+    def ReadR2s(*args): return _pygamma.RBasic_ReadR2s(*args)
+    def ReadR1s(*args): return _pygamma.RBasic_ReadR1s(*args)
+    def ReadPars(*args): return _pygamma.RBasic_ReadPars(*args)
+    def read(*args): return _pygamma.RBasic_read(*args)
+    def Evolve(*args): return _pygamma.RBasic_Evolve(*args)
+    def FID(*args): return _pygamma.RBasic_FID(*args)
+    def FzCoeffs(*args): return _pygamma.RBasic_FzCoeffs(*args)
+RBasic_swigregister = _pygamma.RBasic_swigregister
+RBasic_swigregister(RBasic)
+Kex = _pygamma.Kex
+
+class quatern(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, quatern, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, quatern, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_quatern(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_quatern
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.quatern___assign__(*args)
+    def A(*args): return _pygamma.quatern_A(*args)
+    def B(*args): return _pygamma.quatern_B(*args)
+    def C(*args): return _pygamma.quatern_C(*args)
+    def D(*args): return _pygamma.quatern_D(*args)
+    def alpha(*args): return _pygamma.quatern_alpha(*args)
+    def beta(*args): return _pygamma.quatern_beta(*args)
+    def gamma(*args): return _pygamma.quatern_gamma(*args)
+    def EA(*args): return _pygamma.quatern_EA(*args)
+    def ABG(*args): return _pygamma.quatern_ABG(*args)
+    def __mul__(*args): return _pygamma.quatern___mul__(*args)
+    def __imul__(*args): return _pygamma.quatern___imul__(*args)
+    def __iand__(*args): return _pygamma.quatern___iand__(*args)
+    def composite(*args): return _pygamma.quatern_composite(*args)
+    def RotMx(*args): return _pygamma.quatern_RotMx(*args)
+    def RMx(*args): return _pygamma.quatern_RMx(*args)
+    def norm(*args): return _pygamma.quatern_norm(*args)
+    def inverse(*args): return _pygamma.quatern_inverse(*args)
+    def __eq__(*args): return _pygamma.quatern___eq__(*args)
+    def __ne__(*args): return _pygamma.quatern___ne__(*args)
+    def __lt__(*args): return _pygamma.quatern___lt__(*args)
+    def __gt__(*args): return _pygamma.quatern___gt__(*args)
+    def param(*args): return _pygamma.quatern_param(*args)
+    def PSetAdd(*args): return _pygamma.quatern_PSetAdd(*args)
+    def write(*args): return _pygamma.quatern_write(*args)
+    def read(*args): return _pygamma.quatern_read(*args)
+    __swig_getmethods__["ASinPos"] = lambda x: _pygamma.quatern_ASinPos
+    if _newclass:ASinPos = staticmethod(_pygamma.quatern_ASinPos)
+    __swig_getmethods__["ACosPos"] = lambda x: _pygamma.quatern_ACosPos
+    if _newclass:ACosPos = staticmethod(_pygamma.quatern_ACosPos)
+    __swig_getmethods__["ATanPos"] = lambda x: _pygamma.quatern_ATanPos
+    if _newclass:ATanPos = staticmethod(_pygamma.quatern_ATanPos)
+    def ShowConversion(*args): return _pygamma.quatern_ShowConversion(*args)
+    __swig_getmethods__["ValidRMx"] = lambda x: _pygamma.quatern_ValidRMx
+    if _newclass:ValidRMx = staticmethod(_pygamma.quatern_ValidRMx)
+quatern_swigregister = _pygamma.quatern_swigregister
+quatern_swigregister(quatern)
+quatern_ASinPos = _pygamma.quatern_ASinPos
+quatern_ACosPos = _pygamma.quatern_ACosPos
+quatern_ATanPos = _pygamma.quatern_ATanPos
+quatern_ValidRMx = _pygamma.quatern_ValidRMx
+
+class EAngles(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, EAngles, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, EAngles, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_EAngles(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_EAngles
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.EAngles___assign__(*args)
+    def alpha(*args): return _pygamma.EAngles_alpha(*args)
+    def beta(*args): return _pygamma.EAngles_beta(*args)
+    def gamma(*args): return _pygamma.EAngles_gamma(*args)
+    def __mul__(*args): return _pygamma.EAngles___mul__(*args)
+    def __imul__(*args): return _pygamma.EAngles___imul__(*args)
+    def __iand__(*args): return _pygamma.EAngles___iand__(*args)
+    def composite(*args): return _pygamma.EAngles_composite(*args)
+    def param(*args): return _pygamma.EAngles_param(*args)
+    def PSetAdd(*args): return _pygamma.EAngles_PSetAdd(*args)
+    def write(*args): return _pygamma.EAngles_write(*args)
+    def read(*args): return _pygamma.EAngles_read(*args)
+    __swig_getmethods__["SetCutoff"] = lambda x: _pygamma.EAngles_SetCutoff
+    if _newclass:SetCutoff = staticmethod(_pygamma.EAngles_SetCutoff)
+    def __eq__(*args): return _pygamma.EAngles___eq__(*args)
+    def __ne__(*args): return _pygamma.EAngles___ne__(*args)
+    def __lt__(*args): return _pygamma.EAngles___lt__(*args)
+    def __gt__(*args): return _pygamma.EAngles___gt__(*args)
+    def equal(*args): return _pygamma.EAngles_equal(*args)
+    def inverse(*args): return _pygamma.EAngles_inverse(*args)
+    def RMx(*args): return _pygamma.EAngles_RMx(*args)
+    def Rmx(*args): return _pygamma.EAngles_Rmx(*args)
+    def invRmx(*args): return _pygamma.EAngles_invRmx(*args)
+EAngles_swigregister = _pygamma.EAngles_swigregister
+EAngles_swigregister(EAngles)
+composite = _pygamma.composite
+EAngles_SetCutoff = _pygamma.EAngles_SetCutoff
+
+class decomp(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, decomp, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, decomp, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_decomp(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_decomp
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.decomp___assign__(*args)
+    def decompose(*args): return _pygamma.decomp_decompose(*args)
+    def size(*args): return _pygamma.decomp_size(*args)
+    def LS(*args): return _pygamma.decomp_LS(*args)
+    def HS(*args): return _pygamma.decomp_HS(*args)
+    def Names(*args): return _pygamma.decomp_Names(*args)
+    def Name(*args): return _pygamma.decomp_Name(*args)
+    def OpName(*args): return _pygamma.decomp_OpName(*args)
+    def AltOpName(*args): return _pygamma.decomp_AltOpName(*args)
+    def MaxOpNameLen(*args): return _pygamma.decomp_MaxOpNameLen(*args)
+    def MaxOpAltNameLen(*args): return _pygamma.decomp_MaxOpAltNameLen(*args)
+    def Coherence(*args): return _pygamma.decomp_Coherence(*args)
+    def MaxCoherence(*args): return _pygamma.decomp_MaxCoherence(*args)
+    def Op(*args): return _pygamma.decomp_Op(*args)
+    def values(*args): return _pygamma.decomp_values(*args)
+    def value(*args): return _pygamma.decomp_value(*args)
+    def bcoefficient(*args): return _pygamma.decomp_bcoefficient(*args)
+    def index(*args): return _pygamma.decomp_index(*args)
+    def SortBySpins(*args): return _pygamma.decomp_SortBySpins(*args)
+decomp_swigregister = _pygamma.decomp_swigregister
+decomp_swigregister(decomp)
+
+PB_dec = _pygamma.PB_dec
 class PulWaveform(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, PulWaveform, name, value)
@@ -1276,6 +2150,7 @@ class PulWaveform(_object):
         except: self.this = this
     __swig_destroy__ = _pygamma.delete_PulWaveform
     __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.PulWaveform___assign__(*args)
     def name(*args): return _pygamma.PulWaveform_name(*args)
     def values(*args): return _pygamma.PulWaveform_values(*args)
     def lengths(*args): return _pygamma.PulWaveform_lengths(*args)
@@ -1303,7 +2178,6 @@ class PulWaveform(_object):
     def FM(*args): return _pygamma.PulWaveform_FM(*args)
 PulWaveform_swigregister = _pygamma.PulWaveform_swigregister
 PulWaveform_swigregister(PulWaveform)
-Kex = _pygamma.Kex
 
 class PulComposite(PulWaveform):
     __swig_setmethods__ = {}
@@ -1319,6 +2193,7 @@ class PulComposite(PulWaveform):
         except: self.this = this
     __swig_destroy__ = _pygamma.delete_PulComposite
     __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.PulComposite___assign__(*args)
     def GetH(*args): return _pygamma.PulComposite_GetH(*args)
     def L0(*args): return _pygamma.PulComposite_L0(*args)
     def GetL0(*args): return _pygamma.PulComposite_GetL0(*args)
@@ -1349,6 +2224,836 @@ class PulComposite(PulWaveform):
     def FIDR(*args): return _pygamma.PulComposite_FIDR(*args)
 PulComposite_swigregister = _pygamma.PulComposite_swigregister
 PulComposite_swigregister(PulComposite)
+
+class Pulse(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Pulse, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, Pulse, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_Pulse(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_Pulse
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.Pulse___assign__(*args)
+    def channel(*args): return _pygamma.Pulse_channel(*args)
+    def angle(*args): return _pygamma.Pulse_angle(*args)
+    def phase(*args): return _pygamma.Pulse_phase(*args)
+    def offset(*args): return _pygamma.Pulse_offset(*args)
+    def length(*args): return _pygamma.Pulse_length(*args)
+    def strength(*args): return _pygamma.Pulse_strength(*args)
+    def read(*args): return _pygamma.Pulse_read(*args)
+    def ask_read(*args): return _pygamma.Pulse_ask_read(*args)
+Pulse_swigregister = _pygamma.Pulse_swigregister
+Pulse_swigregister(Pulse)
+
+class Gpuldat(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Gpuldat, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, Gpuldat, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["N"] = _pygamma.Gpuldat_N_set
+    __swig_getmethods__["N"] = _pygamma.Gpuldat_N_get
+    if _newclass:N = _swig_property(_pygamma.Gpuldat_N_get, _pygamma.Gpuldat_N_set)
+    __swig_setmethods__["Wrf"] = _pygamma.Gpuldat_Wrf_set
+    __swig_getmethods__["Wrf"] = _pygamma.Gpuldat_Wrf_get
+    if _newclass:Wrf = _swig_property(_pygamma.Gpuldat_Wrf_get, _pygamma.Gpuldat_Wrf_set)
+    __swig_setmethods__["Iso"] = _pygamma.Gpuldat_Iso_set
+    __swig_getmethods__["Iso"] = _pygamma.Gpuldat_Iso_get
+    if _newclass:Iso = _swig_property(_pygamma.Gpuldat_Iso_get, _pygamma.Gpuldat_Iso_set)
+    __swig_setmethods__["gamB1"] = _pygamma.Gpuldat_gamB1_set
+    __swig_getmethods__["gamB1"] = _pygamma.Gpuldat_gamB1_get
+    if _newclass:gamB1 = _swig_property(_pygamma.Gpuldat_gamB1_get, _pygamma.Gpuldat_gamB1_set)
+    __swig_setmethods__["tau"] = _pygamma.Gpuldat_tau_set
+    __swig_getmethods__["tau"] = _pygamma.Gpuldat_tau_get
+    if _newclass:tau = _swig_property(_pygamma.Gpuldat_tau_get, _pygamma.Gpuldat_tau_set)
+    __swig_setmethods__["fact"] = _pygamma.Gpuldat_fact_set
+    __swig_getmethods__["fact"] = _pygamma.Gpuldat_fact_get
+    if _newclass:fact = _swig_property(_pygamma.Gpuldat_fact_get, _pygamma.Gpuldat_fact_set)
+    __swig_setmethods__["phi"] = _pygamma.Gpuldat_phi_set
+    __swig_getmethods__["phi"] = _pygamma.Gpuldat_phi_get
+    if _newclass:phi = _swig_property(_pygamma.Gpuldat_phi_get, _pygamma.Gpuldat_phi_set)
+    def __init__(self, *args): 
+        this = _pygamma.new_Gpuldat(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_Gpuldat
+    __del__ = lambda self : None;
+Gpuldat_swigregister = _pygamma.Gpuldat_swigregister
+Gpuldat_swigregister(Gpuldat)
+
+Gpulse_Hs = _pygamma.Gpulse_Hs
+Gpulse_Us = _pygamma.Gpulse_Us
+Gpulse_UX = _pygamma.Gpulse_UX
+GNvect = _pygamma.GNvect
+class SincPulDat(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SincPulDat, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, SincPulDat, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["N"] = _pygamma.SincPulDat_N_set
+    __swig_getmethods__["N"] = _pygamma.SincPulDat_N_get
+    if _newclass:N = _swig_property(_pygamma.SincPulDat_N_get, _pygamma.SincPulDat_N_set)
+    __swig_setmethods__["Wrf"] = _pygamma.SincPulDat_Wrf_set
+    __swig_getmethods__["Wrf"] = _pygamma.SincPulDat_Wrf_get
+    if _newclass:Wrf = _swig_property(_pygamma.SincPulDat_Wrf_get, _pygamma.SincPulDat_Wrf_set)
+    __swig_setmethods__["Iso"] = _pygamma.SincPulDat_Iso_set
+    __swig_getmethods__["Iso"] = _pygamma.SincPulDat_Iso_get
+    if _newclass:Iso = _swig_property(_pygamma.SincPulDat_Iso_get, _pygamma.SincPulDat_Iso_set)
+    __swig_setmethods__["gamB1"] = _pygamma.SincPulDat_gamB1_set
+    __swig_getmethods__["gamB1"] = _pygamma.SincPulDat_gamB1_get
+    if _newclass:gamB1 = _swig_property(_pygamma.SincPulDat_gamB1_get, _pygamma.SincPulDat_gamB1_set)
+    __swig_setmethods__["tau"] = _pygamma.SincPulDat_tau_set
+    __swig_getmethods__["tau"] = _pygamma.SincPulDat_tau_get
+    if _newclass:tau = _swig_property(_pygamma.SincPulDat_tau_get, _pygamma.SincPulDat_tau_set)
+    __swig_setmethods__["node"] = _pygamma.SincPulDat_node_set
+    __swig_getmethods__["node"] = _pygamma.SincPulDat_node_get
+    if _newclass:node = _swig_property(_pygamma.SincPulDat_node_get, _pygamma.SincPulDat_node_set)
+    __swig_setmethods__["phi"] = _pygamma.SincPulDat_phi_set
+    __swig_getmethods__["phi"] = _pygamma.SincPulDat_phi_get
+    if _newclass:phi = _swig_property(_pygamma.SincPulDat_phi_get, _pygamma.SincPulDat_phi_set)
+    def __init__(self, *args): 
+        this = _pygamma.new_SincPulDat(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_SincPulDat
+    __del__ = lambda self : None;
+SincPulDat_swigregister = _pygamma.SincPulDat_swigregister
+SincPulDat_swigregister(SincPulDat)
+Gpulse_U = _pygamma.Gpulse_U
+Gangle = _pygamma.Gangle
+GgamB1 = _pygamma.GgamB1
+Gtime = _pygamma.Gtime
+Gvect = _pygamma.Gvect
+GIntvec = _pygamma.GIntvec
+Ghistogram = _pygamma.Ghistogram
+ask_Gpulse = _pygamma.ask_Gpulse
+read_Gpulse = _pygamma.read_Gpulse
+
+SincPts = _pygamma.SincPts
+SincIso = _pygamma.SincIso
+SincWrf = _pygamma.SincWrf
+SincPhi = _pygamma.SincPhi
+SincZero = _pygamma.SincZero
+SincPrep = _pygamma.SincPrep
+class PulCycle(PulComposite):
+    __swig_setmethods__ = {}
+    for _s in [PulComposite]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PulCycle, name, value)
+    __swig_getmethods__ = {}
+    for _s in [PulComposite]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, PulCycle, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_PulCycle(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_PulCycle
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.PulCycle___assign__(*args)
+    def GetCU(*args): return _pygamma.PulCycle_GetCU(*args)
+    def GetCUsum(*args): return _pygamma.PulCycle_GetCUsum(*args)
+    def GetCUmult(*args): return _pygamma.PulCycle_GetCUmult(*args)
+    def GetCG(*args): return _pygamma.PulCycle_GetCG(*args)
+    def GetCGsum(*args): return _pygamma.PulCycle_GetCGsum(*args)
+    def GetCGmult(*args): return _pygamma.PulCycle_GetCGmult(*args)
+    def WF_steps(*args): return _pygamma.PulCycle_WF_steps(*args)
+    def name(*args): return _pygamma.PulCycle_name(*args)
+    def WF_name(*args): return _pygamma.PulCycle_WF_name(*args)
+    def values(*args): return _pygamma.PulCycle_values(*args)
+    def WF_values(*args): return _pygamma.PulCycle_WF_values(*args)
+    def length(*args): return _pygamma.PulCycle_length(*args)
+    def WF_length(*args): return _pygamma.PulCycle_WF_length(*args)
+    def value(*args): return _pygamma.PulCycle_value(*args)
+    def phase(*args): return _pygamma.PulCycle_phase(*args)
+    def steps(*args): return _pygamma.PulCycle_steps(*args)
+    def cycles(*args): return _pygamma.PulCycle_cycles(*args)
+    def fullcycles(*args): return _pygamma.PulCycle_fullcycles(*args)
+    def scalegB1(*args): return _pygamma.PulCycle_scalegB1(*args)
+    def IvsT(*args): return _pygamma.PulCycle_IvsT(*args)
+    def PvsT(*args): return _pygamma.PulCycle_PvsT(*args)
+    def GP(*args): return _pygamma.PulCycle_GP(*args)
+    def FM(*args): return _pygamma.PulCycle_FM(*args)
+    def FIDsync(*args): return _pygamma.PulCycle_FIDsync(*args)
+    def FIDtest(*args): return _pygamma.PulCycle_FIDtest(*args)
+    def FIDsynchCYC(*args): return _pygamma.PulCycle_FIDsynchCYC(*args)
+    def FIDWFsynch(*args): return _pygamma.PulCycle_FIDWFsynch(*args)
+    def FIDSTsynch(*args): return _pygamma.PulCycle_FIDSTsynch(*args)
+    def FID(*args): return _pygamma.PulCycle_FID(*args)
+    def FIDRsynchCYC(*args): return _pygamma.PulCycle_FIDRsynchCYC(*args)
+    def FIDRWFsynch(*args): return _pygamma.PulCycle_FIDRWFsynch(*args)
+    def FIDRSTsynch(*args): return _pygamma.PulCycle_FIDRSTsynch(*args)
+    def FIDR(*args): return _pygamma.PulCycle_FIDR(*args)
+PulCycle_swigregister = _pygamma.PulCycle_swigregister
+PulCycle_swigregister(PulCycle)
+SincPulseHs = _pygamma.SincPulseHs
+SincPulseUs = _pygamma.SincPulseUs
+SincPulseU = _pygamma.SincPulseU
+SincNVect = _pygamma.SincNVect
+SincVect = _pygamma.SincVect
+SincIntVec = _pygamma.SincIntVec
+SincSteps = _pygamma.SincSteps
+SincStrength = _pygamma.SincStrength
+SincSelectivity = _pygamma.SincSelectivity
+SincPhase = _pygamma.SincPhase
+ReadSinc = _pygamma.ReadSinc
+SincHistogram = _pygamma.SincHistogram
+SincNode = _pygamma.SincNode
+SincTime = _pygamma.SincTime
+SincGamB1 = _pygamma.SincGamB1
+SincAngle = _pygamma.SincAngle
+SincAsk = _pygamma.SincAsk
+
+class MLEV(Pulse):
+    __swig_setmethods__ = {}
+    for _s in [Pulse]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, MLEV, name, value)
+    __swig_getmethods__ = {}
+    for _s in [Pulse]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, MLEV, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_MLEV(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_MLEV
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.MLEV___assign__(*args)
+    def WF(*args): return _pygamma.MLEV_WF(*args)
+    def WF_C180(*args): return _pygamma.MLEV_WF_C180(*args)
+    def PCmp(*args): return _pygamma.MLEV_PCmp(*args)
+    def PCmp_C180(*args): return _pygamma.MLEV_PCmp_C180(*args)
+    def CycMLEV4(*args): return _pygamma.MLEV_CycMLEV4(*args)
+    def CycMLEV8(*args): return _pygamma.MLEV_CycMLEV8(*args)
+    def CycMLEV16(*args): return _pygamma.MLEV_CycMLEV16(*args)
+    def read(*args): return _pygamma.MLEV_read(*args)
+    def ask_read(*args): return _pygamma.MLEV_ask_read(*args)
+MLEV_swigregister = _pygamma.MLEV_swigregister
+MLEV_swigregister(MLEV)
+
+class PulTrain(PulComposite):
+    __swig_setmethods__ = {}
+    for _s in [PulComposite]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PulTrain, name, value)
+    __swig_getmethods__ = {}
+    for _s in [PulComposite]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, PulTrain, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_PulTrain(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_PulTrain
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.PulTrain___assign__(*args)
+    def GetU(*args): return _pygamma.PulTrain_GetU(*args)
+    def FID(*args): return _pygamma.PulTrain_FID(*args)
+    def FIDR(*args): return _pygamma.PulTrain_FIDR(*args)
+PulTrain_swigregister = _pygamma.PulTrain_swigregister
+PulTrain_swigregister(PulTrain)
+CYC_MLEV4 = _pygamma.CYC_MLEV4
+CYC_MLEV8 = _pygamma.CYC_MLEV8
+CYC_MLEV16 = _pygamma.CYC_MLEV16
+
+class PulSupCycle(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PulSupCycle, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, PulSupCycle, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_PulSupCycle(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_PulSupCycle
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.PulSupCycle___assign__(*args)
+    def steps(*args): return _pygamma.PulSupCycle_steps(*args)
+    def name(*args): return _pygamma.PulSupCycle_name(*args)
+    def values(*args): return _pygamma.PulSupCycle_values(*args)
+    def value(*args): return _pygamma.PulSupCycle_value(*args)
+    def phase(*args): return _pygamma.PulSupCycle_phase(*args)
+PulSupCycle_swigregister = _pygamma.PulSupCycle_swigregister
+PulSupCycle_swigregister(PulSupCycle)
+
+CYC_CHIRP95 = _pygamma.CYC_CHIRP95
+class GARP(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, GARP, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, GARP, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_GARP(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_GARP
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.GARP___assign__(*args)
+    def channel(*args): return _pygamma.GARP_channel(*args)
+    def strength(*args): return _pygamma.GARP_strength(*args)
+    def phase(*args): return _pygamma.GARP_phase(*args)
+    def offset(*args): return _pygamma.GARP_offset(*args)
+    def WF(*args): return _pygamma.GARP_WF(*args)
+    def WF_GARP(*args): return _pygamma.GARP_WF_GARP(*args)
+    def PCmpGARP(*args): return _pygamma.GARP_PCmpGARP(*args)
+    def PCmp(*args): return _pygamma.GARP_PCmp(*args)
+    def CycGARP1(*args): return _pygamma.GARP_CycGARP1(*args)
+    def read(*args): return _pygamma.GARP_read(*args)
+    def ask_read(*args): return _pygamma.GARP_ask_read(*args)
+GARP_swigregister = _pygamma.GARP_swigregister
+GARP_swigregister(GARP)
+WF_CHIRP95 = _pygamma.WF_CHIRP95
+CP_CHIRP95 = _pygamma.CP_CHIRP95
+
+class WALTZ(Pulse):
+    __swig_setmethods__ = {}
+    for _s in [Pulse]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, WALTZ, name, value)
+    __swig_getmethods__ = {}
+    for _s in [Pulse]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, WALTZ, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_WALTZ(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_WALTZ
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.WALTZ___assign__(*args)
+    def WF(*args): return _pygamma.WALTZ_WF(*args)
+    def WF_WALTZR(*args): return _pygamma.WALTZ_WF_WALTZR(*args)
+    def WF_WALTZK(*args): return _pygamma.WALTZ_WF_WALTZK(*args)
+    def WF_WALTZQ(*args): return _pygamma.WALTZ_WF_WALTZQ(*args)
+    def PCmp(*args): return _pygamma.WALTZ_PCmp(*args)
+    def PCmpWALTZR(*args): return _pygamma.WALTZ_PCmpWALTZR(*args)
+    def PCmpWALTZK(*args): return _pygamma.WALTZ_PCmpWALTZK(*args)
+    def PCmpWALTZQ(*args): return _pygamma.WALTZ_PCmpWALTZQ(*args)
+    def CycWALTZ4(*args): return _pygamma.WALTZ_CycWALTZ4(*args)
+    def CycWALTZ8(*args): return _pygamma.WALTZ_CycWALTZ8(*args)
+    def CycWALTZ16(*args): return _pygamma.WALTZ_CycWALTZ16(*args)
+    def read(*args): return _pygamma.WALTZ_read(*args)
+    def ask_read(*args): return _pygamma.WALTZ_ask_read(*args)
+WALTZ_swigregister = _pygamma.WALTZ_swigregister
+WALTZ_swigregister(WALTZ)
+
+class PulTrainSCyc(PulSupCycle):
+    __swig_setmethods__ = {}
+    for _s in [PulSupCycle]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, PulTrainSCyc, name, value)
+    __swig_getmethods__ = {}
+    for _s in [PulSupCycle]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, PulTrainSCyc, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_PulTrainSCyc(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_PulTrainSCyc
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.PulTrainSCyc___assign__(*args)
+    def GetU(*args): return _pygamma.PulTrainSCyc_GetU(*args)
+    def GetUsum(*args): return _pygamma.PulTrainSCyc_GetUsum(*args)
+    def GetUmult(*args): return _pygamma.PulTrainSCyc_GetUmult(*args)
+    def SetGs(*args): return _pygamma.PulTrainSCyc_SetGs(*args)
+    def GetG(*args): return _pygamma.PulTrainSCyc_GetG(*args)
+    def length(*args): return _pygamma.PulTrainSCyc_length(*args)
+    def steps(*args): return _pygamma.PulTrainSCyc_steps(*args)
+    def fullSCYCs(*args): return _pygamma.PulTrainSCyc_fullSCYCs(*args)
+    def fullsteps(*args): return _pygamma.PulTrainSCyc_fullsteps(*args)
+PulTrainSCyc_swigregister = _pygamma.PulTrainSCyc_swigregister
+PulTrainSCyc_swigregister(PulTrainSCyc)
+CYC_WALTZ4 = _pygamma.CYC_WALTZ4
+CYC_WALTZ8 = _pygamma.CYC_WALTZ8
+
+class DANTE(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DANTE, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, DANTE, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_DANTE(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_DANTE
+    __del__ = lambda self : None;
+    def __assign__(*args): return _pygamma.DANTE___assign__(*args)
+    def steps(*args): return _pygamma.DANTE_steps(*args)
+    def channel(*args): return _pygamma.DANTE_channel(*args)
+    def dlength(*args): return _pygamma.DANTE_dlength(*args)
+    def strength(*args): return _pygamma.DANTE_strength(*args)
+    def plength(*args): return _pygamma.DANTE_plength(*args)
+    def angle(*args): return _pygamma.DANTE_angle(*args)
+    def phase(*args): return _pygamma.DANTE_phase(*args)
+    def offset(*args): return _pygamma.DANTE_offset(*args)
+    def length(*args): return _pygamma.DANTE_length(*args)
+    def WF(*args): return _pygamma.DANTE_WF(*args)
+    def CP(*args): return _pygamma.DANTE_CP(*args)
+    def PT(*args): return _pygamma.DANTE_PT(*args)
+    def read(*args): return _pygamma.DANTE_read(*args)
+    def ask_read(*args): return _pygamma.DANTE_ask_read(*args)
+DANTE_swigregister = _pygamma.DANTE_swigregister
+DANTE_swigregister(DANTE)
+
+set_DANTE = _pygamma.set_DANTE
+detect = _pygamma.detect
+Ixpulse_Us = _pygamma.Ixpulse_Us
+Iypulse_Us = _pygamma.Iypulse_Us
+Gxpulse_U = _pygamma.Gxpulse_U
+Gypulse_U = _pygamma.Gypulse_U
+SincPulseXUs = _pygamma.SincPulseXUs
+SincPulseYUs = _pygamma.SincPulseYUs
+class sys_gradz(spin_system):
+    __swig_setmethods__ = {}
+    for _s in [spin_system]: __swig_setmethods__.update(getattr(_s,'__swig_setmethods__',{}))
+    __setattr__ = lambda self, name, value: _swig_setattr(self, sys_gradz, name, value)
+    __swig_getmethods__ = {}
+    for _s in [spin_system]: __swig_getmethods__.update(getattr(_s,'__swig_getmethods__',{}))
+    __getattr__ = lambda self, name: _swig_getattr(self, sys_gradz, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_sys_gradz(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_sys_gradz
+    __del__ = lambda self : None;
+    def NSS(*args): return _pygamma.sys_gradz_NSS(*args)
+    def BoGrad(*args): return _pygamma.sys_gradz_BoGrad(*args)
+    def GradVal(*args): return _pygamma.sys_gradz_GradVal(*args)
+    def SysLen(*args): return _pygamma.sys_gradz_SysLen(*args)
+    def SysDist(*args): return _pygamma.sys_gradz_SysDist(*args)
+    def SubSys(*args): return _pygamma.sys_gradz_SubSys(*args)
+    def SubSysShift(*args): return _pygamma.sys_gradz_SubSysShift(*args)
+    def SubSysPPM(*args): return _pygamma.sys_gradz_SubSysPPM(*args)
+    def PSetAdd(*args): return _pygamma.sys_gradz_PSetAdd(*args)
+    def setSubSys(*args): return _pygamma.sys_gradz_setSubSys(*args)
+    def setBoGrad(*args): return _pygamma.sys_gradz_setBoGrad(*args)
+    def setLength(*args): return _pygamma.sys_gradz_setLength(*args)
+    def __assign__(*args): return _pygamma.sys_gradz___assign__(*args)
+    def write(*args): return _pygamma.sys_gradz_write(*args)
+    def read(*args): return _pygamma.sys_gradz_read(*args)
+    def ask_read(*args): return _pygamma.sys_gradz_ask_read(*args)
+sys_gradz_swigregister = _pygamma.sys_gradz_swigregister
+sys_gradz_swigregister(sys_gradz)
+WF_DANTE = _pygamma.WF_DANTE
+CP_DANTE = _pygamma.CP_DANTE
+PT_DANTE = _pygamma.PT_DANTE
+UDANTE = _pygamma.UDANTE
+ask_DANTE = _pygamma.ask_DANTE
+acquire = _pygamma.acquire
+FID = _pygamma.FID
+acquire1DT = _pygamma.acquire1DT
+Hzgrad = _pygamma.Hzgrad
+Props = _pygamma.Props
+evolve = _pygamma.evolve
+Sxpuls_U = _pygamma.Sxpuls_U
+Sypuls_U = _pygamma.Sypuls_U
+
+J_error = _pygamma.J_error
+J_fatality = _pygamma.J_fatality
+J_LZ_iso = _pygamma.J_LZ_iso
+J_LZ_aniso = _pygamma.J_LZ_aniso
+R1_RR_max = _pygamma.R1_RR_max
+T1_RR_max = _pygamma.T1_RR_max
+R2_RR_max = _pygamma.R2_RR_max
+T2_RR_max = _pygamma.T2_RR_max
+RlxNMRfatal = _pygamma.RlxNMRfatal
+Rodiag_2 = _pygamma.Rodiag_2
+Rdiag_2 = _pygamma.Rdiag_2
+R_4s = _pygamma.R_4s
+R_3s = _pygamma.R_3s
+R_2s = _pygamma.R_2s
+LOp_sigma = _pygamma.LOp_sigma
+Rrf_4s = _pygamma.Rrf_4s
+Rrf_3s = _pygamma.Rrf_3s
+Rrf_2s = _pygamma.Rrf_2s
+Rrfijkds = _pygamma.Rrfijkds
+Rrfkijds = _pygamma.Rrfkijds
+sigma_ss = _pygamma.sigma_ss
+sigma_ss_it = _pygamma.sigma_ss_it
+class WBRExch(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, WBRExch, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, WBRExch, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_WBRExch(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _pygamma.delete_WBRExch
+    __del__ = lambda self : None;
+    def Level(*args): return _pygamma.WBRExch_Level(*args)
+    def Type(*args): return _pygamma.WBRExch_Type(*args)
+    def Dip(*args): return _pygamma.WBRExch_Dip(*args)
+    def DipDFS(*args): return _pygamma.WBRExch_DipDFS(*args)
+    def DipCSA(*args): return _pygamma.WBRExch_DipCSA(*args)
+    def DipCSADFS(*args): return _pygamma.WBRExch_DipCSADFS(*args)
+    def DipQuad(*args): return _pygamma.WBRExch_DipQuad(*args)
+    def DipQuadDFS(*args): return _pygamma.WBRExch_DipQuadDFS(*args)
+    def CSA(*args): return _pygamma.WBRExch_CSA(*args)
+    def CSADFS(*args): return _pygamma.WBRExch_CSADFS(*args)
+    def CSADip(*args): return _pygamma.WBRExch_CSADip(*args)
+    def CSADipDFS(*args): return _pygamma.WBRExch_CSADipDFS(*args)
+    def CSAQuad(*args): return _pygamma.WBRExch_CSAQuad(*args)
+    def CSAQuadDFS(*args): return _pygamma.WBRExch_CSAQuadDFS(*args)
+    def Quad(*args): return _pygamma.WBRExch_Quad(*args)
+    def QuadDFS(*args): return _pygamma.WBRExch_QuadDFS(*args)
+    def QuadDip(*args): return _pygamma.WBRExch_QuadDip(*args)
+    def QuadDipDFSQuad(*args): return _pygamma.WBRExch_QuadDipDFSQuad(*args)
+    def QuadCSA(*args): return _pygamma.WBRExch_QuadCSA(*args)
+    def QuadCSADFS(*args): return _pygamma.WBRExch_QuadCSADFS(*args)
+    def LWhh(*args): return _pygamma.WBRExch_LWhh(*args)
+    def SetZero(*args): return _pygamma.WBRExch_SetZero(*args)
+    def SetLevel(*args): return _pygamma.WBRExch_SetLevel(*args)
+    def SetType(*args): return _pygamma.WBRExch_SetType(*args)
+    def SetDip(*args): return _pygamma.WBRExch_SetDip(*args)
+    def SetSA(*args): return _pygamma.WBRExch_SetSA(*args)
+    def SetQuad(*args): return _pygamma.WBRExch_SetQuad(*args)
+    def SetDCX(*args): return _pygamma.WBRExch_SetDCX(*args)
+    def SetDQX(*args): return _pygamma.WBRExch_SetDQX(*args)
+    def SetQCX(*args): return _pygamma.WBRExch_SetQCX(*args)
+    def __assign__(*args): return _pygamma.WBRExch___assign__(*args)
+    def prepQuad(*args): return _pygamma.WBRExch_prepQuad(*args)
+    def read(*args): return _pygamma.WBRExch_read(*args)
+    def ask_read(*args): return _pygamma.WBRExch_ask_read(*args)
+    def ask(*args): return _pygamma.WBRExch_ask(*args)
+    def REX(*args): return _pygamma.WBRExch_REX(*args)
+    def REXrf(*args): return _pygamma.WBRExch_REXrf(*args)
+WBRExch_swigregister = _pygamma.WBRExch_swigregister
+WBRExch_swigregister(WBRExch)
+RCCrf = _pygamma.RCCrf
+RCCds = _pygamma.RCCds
+RCCrfds = _pygamma.RCCrfds
+R1_CC = _pygamma.R1_CC
+R1_CC_max = _pygamma.R1_CC_max
+T1_CC = _pygamma.T1_CC
+T1_CC_max = _pygamma.T1_CC_max
+R2_CC = _pygamma.R2_CC
+R2_CC_max = _pygamma.R2_CC_max
+T2_CC = _pygamma.T2_CC
+T2_CC_max = _pygamma.T2_CC_max
+LWhh_CC = _pygamma.LWhh_CC
+LWhh_CC_max = _pygamma.LWhh_CC_max
+xiCSA = _pygamma.xiCSA
+CSA = _pygamma.CSA
+RDCX = _pygamma.RDCX
+RDC = _pygamma.RDC
+RCD = _pygamma.RCD
+RCDrf = _pygamma.RCDrf
+RDD_Jgen = _pygamma.RDD_Jgen
+RDDrf = _pygamma.RDDrf
+RDDds = _pygamma.RDDds
+RDDrfds = _pygamma.RDDrfds
+xiD = _pygamma.xiD
+DCC = _pygamma.DCC
+R1_DD = _pygamma.R1_DD
+R1_DD_max = _pygamma.R1_DD_max
+T1_DD = _pygamma.T1_DD
+T1_DD_max = _pygamma.T1_DD_max
+R2_DD = _pygamma.R2_DD
+R2_DD_max = _pygamma.R2_DD_max
+T2_DD = _pygamma.T2_DD
+T2_DD_max = _pygamma.T2_DD_max
+LWhh_DD = _pygamma.LWhh_DD
+LWhh_DD_max = _pygamma.LWhh_DD_max
+NOE = _pygamma.NOE
+R2_DDMQT = _pygamma.R2_DDMQT
+Rex = _pygamma.Rex
+J_gen = _pygamma.J_gen
+J_gen_shft = _pygamma.J_gen_shft
+tausD = _pygamma.tausD
+chiD = _pygamma.chiD
+taust = _pygamma.taust
+chit = _pygamma.chit
+Jcoeffs = _pygamma.Jcoeffs
+J_red_shft = _pygamma.J_red_shft
+J_reduced = _pygamma.J_reduced
+Q_red_shft = _pygamma.Q_red_shft
+Q_reduced = _pygamma.Q_reduced
+RQCX = _pygamma.RQCX
+RCQrf = _pygamma.RCQrf
+RQQrf = _pygamma.RQQrf
+RQQds = _pygamma.RQQds
+RQQrfds = _pygamma.RQQrfds
+R1_QQ = _pygamma.R1_QQ
+R1_QQ_max = _pygamma.R1_QQ_max
+T1_QQ = _pygamma.T1_QQ
+T1_QQ_max = _pygamma.T1_QQ_max
+R2_QQ = _pygamma.R2_QQ
+R2_QQ_max = _pygamma.R2_QQ_max
+T2_QQ = _pygamma.T2_QQ
+T2_QQ_max = _pygamma.T2_QQ_max
+LWhh_QQ = _pygamma.LWhh_QQ
+LWhh_QQ_max = _pygamma.LWhh_QQ_max
+xiQ = _pygamma.xiQ
+RRRx = _pygamma.RRRx
+RRR = _pygamma.RRR
+Rij_rdm = _pygamma.Rij_rdm
+Rmumu_rdm = _pygamma.Rmumu_rdm
+R1_RR = _pygamma.R1_RR
+T1_RR = _pygamma.T1_RR
+R2_RR = _pygamma.R2_RR
+T2_RR = _pygamma.T2_RR
+LWhh_RR = _pygamma.LWhh_RR
+LWhh_RR_max = _pygamma.LWhh_RR_max
+xiRDM = _pygamma.xiRDM
+RlxNMRerror = _pygamma.RlxNMRerror
+R_4 = _pygamma.R_4
+R_3 = _pygamma.R_3
+R_2 = _pygamma.R_2
+R_0 = _pygamma.R_0
+R_AC_0 = _pygamma.R_AC_0
+R_CC_0 = _pygamma.R_CC_0
+R_CC_0_trans = _pygamma.R_CC_0_trans
+R_AC_1 = _pygamma.R_AC_1
+R_CC_1 = _pygamma.R_CC_1
+Rmumu = _pygamma.Rmumu
+Rmu1mu2 = _pygamma.Rmu1mu2
+Rijkl = _pygamma.Rijkl
+Rij = _pygamma.Rij
+Rijk = _pygamma.Rijk
+Rkij = _pygamma.Rkij
+Rmumuds = _pygamma.Rmumuds
+Rijklds = _pygamma.Rijklds
+Rijds = _pygamma.Rijds
+Rijkds = _pygamma.Rijkds
+Rkijds = _pygamma.Rkijds
+Rrf_4 = _pygamma.Rrf_4
+Rrf_3 = _pygamma.Rrf_3
+Rrf_2 = _pygamma.Rrf_2
+Rrf_0 = _pygamma.Rrf_0
+Rrfmumu = _pygamma.Rrfmumu
+Rrfijkl = _pygamma.Rrfijkl
+Rrfij = _pygamma.Rrfij
+Rrfijk = _pygamma.Rrfijk
+Rrfkij = _pygamma.Rrfkij
+Rrfijklds = _pygamma.Rrfijklds
+Rrfijds = _pygamma.Rrfijds
+REXijkl = _pygamma.REXijkl
+REXijk = _pygamma.REXijk
+REXkij = _pygamma.REXkij
+REXij = _pygamma.REXij
+REXmumu = _pygamma.REXmumu
+REXrfijkl = _pygamma.REXrfijkl
+REXrfijk = _pygamma.REXrfijk
+REXrfkij = _pygamma.REXrfkij
+REXrfij = _pygamma.REXrfij
+REXrfmumu = _pygamma.REXrfmumu
+REX_4 = _pygamma.REX_4
+REX_3 = _pygamma.REX_3
+REXrf_4 = _pygamma.REXrf_4
+REXrf_3 = _pygamma.REXrf_3
+
+Rel_clean = _pygamma.Rel_clean
+class ExchProc(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, ExchProc, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, ExchProc, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["KRate"] = _pygamma.ExchProc_KRate_set
+    __swig_getmethods__["KRate"] = _pygamma.ExchProc_KRate_get
+    if _newclass:KRate = _swig_property(_pygamma.ExchProc_KRate_get, _pygamma.ExchProc_KRate_set)
+    __swig_setmethods__["LHSComps"] = _pygamma.ExchProc_LHSComps_set
+    __swig_getmethods__["LHSComps"] = _pygamma.ExchProc_LHSComps_get
+    if _newclass:LHSComps = _swig_property(_pygamma.ExchProc_LHSComps_get, _pygamma.ExchProc_LHSComps_set)
+    __swig_setmethods__["RHSComps"] = _pygamma.ExchProc_RHSComps_set
+    __swig_getmethods__["RHSComps"] = _pygamma.ExchProc_RHSComps_get
+    if _newclass:RHSComps = _swig_property(_pygamma.ExchProc_RHSComps_get, _pygamma.ExchProc_RHSComps_set)
+    __swig_setmethods__["SpinMaps"] = _pygamma.ExchProc_SpinMaps_set
+    __swig_getmethods__["SpinMaps"] = _pygamma.ExchProc_SpinMaps_get
+    if _newclass:SpinMaps = _swig_property(_pygamma.ExchProc_SpinMaps_get, _pygamma.ExchProc_SpinMaps_set)
+    def XPerror(*args): return _pygamma.ExchProc_XPerror(*args)
+    def XPfatal(*args): return _pygamma.ExchProc_XPfatal(*args)
+    def getExch(*args): return _pygamma.ExchProc_getExch(*args)
+    def parseExch(*args): return _pygamma.ExchProc_parseExch(*args)
+    def getComps(*args): return _pygamma.ExchProc_getComps(*args)
+    def getRate(*args): return _pygamma.ExchProc_getRate(*args)
+    def getMappings(*args): return _pygamma.ExchProc_getMappings(*args)
+    def getXP(*args): return _pygamma.ExchProc_getXP(*args)
+    def setXP(*args): return _pygamma.ExchProc_setXP(*args)
+    def CheckLHS(*args): return _pygamma.ExchProc_CheckLHS(*args)
+    def CheckRHS(*args): return _pygamma.ExchProc_CheckRHS(*args)
+    def __assign__(*args): return _pygamma.ExchProc___assign__(*args)
+    __swig_destroy__ = _pygamma.delete_ExchProc
+    __del__ = lambda self : None;
+    def __init__(self, *args): 
+        this = _pygamma.new_ExchProc(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def intra_default(*args): return _pygamma.ExchProc_intra_default(*args)
+    def Kex(*args): return _pygamma.ExchProc_Kex(*args)
+    def LHSComp(*args): return _pygamma.ExchProc_LHSComp(*args)
+    def RHSComp(*args): return _pygamma.ExchProc_RHSComp(*args)
+    def NCompsLHS(*args): return _pygamma.ExchProc_NCompsLHS(*args)
+    def NCompsRHS(*args): return _pygamma.ExchProc_NCompsRHS(*args)
+    def mixes(*args): return _pygamma.ExchProc_mixes(*args)
+    def CompInLHS(*args): return _pygamma.ExchProc_CompInLHS(*args)
+    def CompInRHS(*args): return _pygamma.ExchProc_CompInRHS(*args)
+    def involves(*args): return _pygamma.ExchProc_involves(*args)
+    def NSpinMaps(*args): return _pygamma.ExchProc_NSpinMaps(*args)
+    def SMap(*args): return _pygamma.ExchProc_SMap(*args)
+    def add_pair(*args): return _pygamma.ExchProc_add_pair(*args)
+    def mapped(*args): return _pygamma.ExchProc_mapped(*args)
+    def mapping(*args): return _pygamma.ExchProc_mapping(*args)
+    def read(*args): return _pygamma.ExchProc_read(*args)
+    __swig_getmethods__["Label"] = lambda x: _pygamma.ExchProc_Label
+    if _newclass:Label = staticmethod(_pygamma.ExchProc_Label)
+    def LHSStr(*args): return _pygamma.ExchProc_LHSStr(*args)
+    def RHSStr(*args): return _pygamma.ExchProc_RHSStr(*args)
+    def SpinMapStrs(*args): return _pygamma.ExchProc_SpinMapStrs(*args)
+    def lsprint(*args): return _pygamma.ExchProc_lsprint(*args)
+ExchProc_swigregister = _pygamma.ExchProc_swigregister
+ExchProc_swigregister(ExchProc)
+RDDel = _pygamma.RDDel
+RSSel = _pygamma.RSSel
+RDSel = _pygamma.RDSel
+RSDel = _pygamma.RSDel
+RRRel = _pygamma.RRRel
+RQQel = _pygamma.RQQel
+RQSel = _pygamma.RQSel
+RSQel = _pygamma.RSQel
+RQDel = _pygamma.RQDel
+RDQel = _pygamma.RDQel
+Rijkl_el = _pygamma.Rijkl_el
+Rij_el = _pygamma.Rij_el
+Rijk_el = _pygamma.Rijk_el
+Rkij_el = _pygamma.Rkij_el
+Rel_12 = _pygamma.Rel_12
+Rel_12_condense = _pygamma.Rel_12_condense
+Spin_labels = _pygamma.Spin_labels
+W_labels = _pygamma.W_labels
+Elem_labels = _pygamma.Elem_labels
+Rel = _pygamma.Rel
+sort = _pygamma.sort
+ExchProc_Label = _pygamma.ExchProc_Label
+
+class multi_sys(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, multi_sys, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, multi_sys, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _pygamma.new_multi_sys(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def __assign__(*args): return _pygamma.multi_sys___assign__(*args)
+    __swig_destroy__ = _pygamma.delete_multi_sys
+    __del__ = lambda self : None;
+    def name(*args): return _pygamma.multi_sys_name(*args)
+    def pop(*args): return _pygamma.multi_sys_pop(*args)
+    def popmin(*args): return _pygamma.multi_sys_popmin(*args)
+    def popmax(*args): return _pygamma.multi_sys_popmax(*args)
+    def NComps(*args): return _pygamma.multi_sys_NComps(*args)
+    def Comp(*args): return _pygamma.multi_sys_Comp(*args)
+    def AddComp(*args): return _pygamma.multi_sys_AddComp(*args)
+    def CheckComp(*args): return _pygamma.multi_sys_CheckComp(*args)
+    def NExProcs(*args): return _pygamma.multi_sys_NExProcs(*args)
+    def ExProc(*args): return _pygamma.multi_sys_ExProc(*args)
+    def Kex(*args): return _pygamma.multi_sys_Kex(*args)
+    def NCompsLHS(*args): return _pygamma.multi_sys_NCompsLHS(*args)
+    def NCompsRHS(*args): return _pygamma.multi_sys_NCompsRHS(*args)
+    def homonuclear(*args): return _pygamma.multi_sys_homonuclear(*args)
+    def heteronuclear(*args): return _pygamma.multi_sys_heteronuclear(*args)
+    def HS(*args): return _pygamma.multi_sys_HS(*args)
+    def LS(*args): return _pygamma.multi_sys_LS(*args)
+    def HSs(*args): return _pygamma.multi_sys_HSs(*args)
+    def LSs(*args): return _pygamma.multi_sys_LSs(*args)
+    def symbol(*args): return _pygamma.multi_sys_symbol(*args)
+    def Omega(*args): return _pygamma.multi_sys_Omega(*args)
+    def write(*args): return _pygamma.multi_sys_write(*args)
+    def read(*args): return _pygamma.multi_sys_read(*args)
+    def ask_read(*args): return _pygamma.multi_sys_ask_read(*args)
+    def SpinMapStrs(*args): return _pygamma.multi_sys_SpinMapStrs(*args)
+    def LHSStrs(*args): return _pygamma.multi_sys_LHSStrs(*args)
+    def RHSStrs(*args): return _pygamma.multi_sys_RHSStrs(*args)
+    def EXPStrs(*args): return _pygamma.multi_sys_EXPStrs(*args)
+multi_sys_swigregister = _pygamma.multi_sys_swigregister
+multi_sys_swigregister(multi_sys)
+
+D_basis = _pygamma.D_basis
+qStateLS = _pygamma.qStateLS
+LS_qState_bra = _pygamma.LS_qState_bra
+LS_qState_ket = _pygamma.LS_qState_ket
+Lo = _pygamma.Lo
+U_LS = _pygamma.U_LS
+Uinv_LS = _pygamma.Uinv_LS
+Op_Ebase = _pygamma.Op_Ebase
+Xm = _pygamma.Xm
+Xnmpdblk = _pygamma.Xnmpdblk
+Xnmpblk = _pygamma.Xnmpblk
+XXnm = _pygamma.XXnm
+class SpinMap(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SpinMap, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, SpinMap, name)
+    __repr__ = _swig_repr
+    __swig_setmethods__["sub1"] = _pygamma.SpinMap_sub1_set
+    __swig_getmethods__["sub1"] = _pygamma.SpinMap_sub1_get
+    if _newclass:sub1 = _swig_property(_pygamma.SpinMap_sub1_get, _pygamma.SpinMap_sub1_set)
+    __swig_setmethods__["sp1"] = _pygamma.SpinMap_sp1_set
+    __swig_getmethods__["sp1"] = _pygamma.SpinMap_sp1_get
+    if _newclass:sp1 = _swig_property(_pygamma.SpinMap_sp1_get, _pygamma.SpinMap_sp1_set)
+    __swig_setmethods__["sub2"] = _pygamma.SpinMap_sub2_set
+    __swig_getmethods__["sub2"] = _pygamma.SpinMap_sub2_get
+    if _newclass:sub2 = _swig_property(_pygamma.SpinMap_sub2_get, _pygamma.SpinMap_sub2_set)
+    __swig_setmethods__["sp2"] = _pygamma.SpinMap_sp2_set
+    __swig_getmethods__["sp2"] = _pygamma.SpinMap_sp2_get
+    if _newclass:sp2 = _swig_property(_pygamma.SpinMap_sp2_get, _pygamma.SpinMap_sp2_set)
+    def SMfatal(*args): return _pygamma.SpinMap_SMfatal(*args)
+    def SMerror(*args): return _pygamma.SpinMap_SMerror(*args)
+    def getSMStr(*args): return _pygamma.SpinMap_getSMStr(*args)
+    def getSM(*args): return _pygamma.SpinMap_getSM(*args)
+    def setSM(*args): return _pygamma.SpinMap_setSM(*args)
+    def Check(*args): return _pygamma.SpinMap_Check(*args)
+    def __init__(self, *args): 
+        this = _pygamma.new_SpinMap(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    def __assign__(*args): return _pygamma.SpinMap___assign__(*args)
+    __swig_destroy__ = _pygamma.delete_SpinMap
+    __del__ = lambda self : None;
+    def Sub1(*args): return _pygamma.SpinMap_Sub1(*args)
+    def Sub2(*args): return _pygamma.SpinMap_Sub2(*args)
+    def Spin1(*args): return _pygamma.SpinMap_Spin1(*args)
+    def Spin2(*args): return _pygamma.SpinMap_Spin2(*args)
+    def read(*args): return _pygamma.SpinMap_read(*args)
+    def lsprint(*args): return _pygamma.SpinMap_lsprint(*args)
+SpinMap_swigregister = _pygamma.SpinMap_swigregister
+SpinMap_swigregister(SpinMap)
+multize = _pygamma.multize
+Fx = _pygamma.Fx
+Fy = _pygamma.Fy
+Fz = _pygamma.Fz
+Fe = _pygamma.Fe
+Fm = _pygamma.Fm
+Fp = _pygamma.Fp
+Rz = _pygamma.Rz
+Ho = _pygamma.Ho
+Hcs = _pygamma.Hcs
+HJ = _pygamma.HJ
+Hcs_lab = _pygamma.Hcs_lab
+Iypuls = _pygamma.Iypuls
+Ixpuls_U = _pygamma.Ixpuls_U
+Iypuls_U = _pygamma.Iypuls_U
+Ixypuls_U = _pygamma.Ixypuls_U
+sigma_eq = _pygamma.sigma_eq
+Hsuper = _pygamma.Hsuper
+RQQ = _pygamma.RQQ
+RCC = _pygamma.RCC
+RDD = _pygamma.RDD
+RCQ = _pygamma.RCQ
+RQC = _pygamma.RQC
+Xnm = _pygamma.Xnm
+Xnmp = _pygamma.Xnmp
 
 
 
