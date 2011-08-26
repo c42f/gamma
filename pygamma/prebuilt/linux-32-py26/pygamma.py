@@ -480,6 +480,8 @@ class complex(_object):
     def Ielem(*args): return _pygamma.complex_Ielem(*args)
     def Rec(*args): return _pygamma.complex_Rec(*args)
     def Imc(*args): return _pygamma.complex_Imc(*args)
+    def real(*args): return _pygamma.complex_real(*args)
+    def imag(*args): return _pygamma.complex_imag(*args)
     def __add__(*args): return _pygamma.complex___add__(*args)
     def __iadd__(*args): return _pygamma.complex___iadd__(*args)
     def __sub__(*args): return _pygamma.complex___sub__(*args)
@@ -2600,6 +2602,7 @@ DANTE_swigregister = _pygamma.DANTE_swigregister
 DANTE_swigregister(DANTE)
 
 set_DANTE = _pygamma.set_DANTE
+pulseshift = _pygamma.pulseshift
 detect = _pygamma.detect
 Ixpulse_Us = _pygamma.Ixpulse_Us
 Iypulse_Us = _pygamma.Iypulse_Us
