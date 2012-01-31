@@ -1,8 +1,0 @@
-Compiled on WinXP SP 3 using MSVC 2008 Express Edition
-Python 2.7 from Python.org
-
-C:\>python
-Python 2.7.1 (r271:86832, Nov 27 2010, 18:30:46) [MSC v.1500 32 bit (Intel)] on win32
-Type "help", "copyright", "credits" or "license" for more information.
->>>
-

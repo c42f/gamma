@@ -1,4 +1,0 @@
-Compiled on WinXP SP 3 using MSVC 2008 Express Edition
-Python from Python.org -- 
-Python 2.5.4 (r254:67916, Dec 23 2008, 15:10:54) [MSC v.1310 32 bit (Intel)] on win32
-
