@@ -872,7 +872,7 @@ complex IntRank2A::A21(double A, double B, double G) const
   double  C2gamma = cos(twoG); 		  	// cos(2*gamma)
   double  S2gamma = sin(twoG);   		// sin(2*gamma)
   complex term    = complex(Cbeta*C2gamma,S2gamma);
-  return -RT5O24PI*Ealpha*(3.*S2beta-(2.*ETA*Sbeta)*term);
+  return -RT5O96PI*Ealpha*(3.*S2beta-(2.*ETA*Sbeta)*term);
   }
 
 complex IntRank2A::A21(const EAngles& EA) const
@@ -888,7 +888,7 @@ complex IntRank2A::A21(const EAngles& EA) const
   double  C2gamma = cos(twoG); 		  	// cos(2*gamma)
   double  S2gamma = sin(twoG);   		// sin(2*gamma)
   complex term    = complex(Cbeta*C2gamma,S2gamma);
-  return -RT5O24PI*Ealpha*(3.*S2beta-(2.*ETA*Sbeta)*term);
+  return -RT5O96PI*Ealpha*(3.*S2beta-(2.*ETA*Sbeta)*term);
   }
 
 // ----------------------------------------------------------------------------
@@ -921,7 +921,7 @@ complex IntRank2A::A2m1(double A, double B, double G) const
   double  C2gamma = cos(twoG); 		  	// cos(2*gamma)
   double  S2gamma = sin(twoG);   		// sin(2*gamma)
   complex term    = complex(Cbeta*C2gamma,-S2gamma);
-  return  RT5O24PI*Ealpha*(3.*S2beta-(2.*ETA*Sbeta)*term);
+  return  RT5O96PI*Ealpha*(3.*S2beta-(2.*ETA*Sbeta)*term);
   }
 
 complex IntRank2A::A2m1(const EAngles& EA) const
@@ -937,7 +937,7 @@ complex IntRank2A::A2m1(const EAngles& EA) const
   double  C2gamma = cos(twoG); 		  	// cos(2*gamma)
   double  S2gamma = sin(twoG);   		// sin(2*gamma)
   complex term    = complex(Cbeta*C2gamma,-S2gamma);
-  return  RT5O24PI*Ealpha*(3.*S2beta-(2.*ETA*Sbeta)*term);
+  return  RT5O96PI*Ealpha*(3.*S2beta-(2.*ETA*Sbeta)*term);
   }
 
 // ----------------------------------------------------------------------------
