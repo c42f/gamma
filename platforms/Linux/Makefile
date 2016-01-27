@@ -3,7 +3,7 @@
 #          Linux Makefile for the GAMMA and PyGAMMA Libraries
 #
 # This builds GAMMA and PyGAMMA. It assumes that one is using the GCC C++
-# compiler. To build PyGAMMA and to run the tests one must have Python 
+# compiler. To build PyGAMMA and to run the tests one must have Python
 # available.
 #
 # ---------------------------------------------------------------------
@@ -15,7 +15,7 @@
 #    the necessary include files. May require sudo or root privileges.
 #  - Type "make pysg" to compile the PyGAMMA shared library.
 #  - Type "make pysgdist" to compile the PyGAMMA shared library and copy
-#    the output files to the pygamma/homemade directory to prepare for 
+#    the output files to the pygamma/homemade directory to prepare for
 #    installation via `python setup.py install`. This also copies files to
 #    the appropriate prebuilt directory for building a PyGAMMA bundle for
 #    distribution.
@@ -92,7 +92,7 @@ SWIG          = swig
 # If you have SWIG >= 2.0.4, you can add -builtin to the SWIG_OPTIONS for
 # a (very) modest performance gain. See here for details:
 # http://scion.duhs.duke.edu/vespa/gamma/wiki/SwigBuiltinTypesBenefit
-SWIG_OPTIONS  = -c++ -python 
+SWIG_OPTIONS  = -c++ -python -builtin
 
 GAMMA_ARCH    = linux-gnu
 INSTALLDIR    = /usr/local
@@ -673,8 +673,8 @@ $(BINDIR)/$(SO_NAMEXXX): $(SO_OBJS)
 # Using python to find the default library and include path for "python"
 # executable on the local machine.
 
-PYTHONINCDIRS := ${shell ${PYTHON} -c "import distutils.sysconfig; print distutils.sysconfig.get_python_inc()"}
-PYTHONLIBDIRS := ${shell ${PYTHON} -c "import distutils.sysconfig; print distutils.sysconfig.get_python_lib()"}
+PYTHONINCDIRS := ${shell ${PYTHON} -c "import distutils.sysconfig; print(distutils.sysconfig.get_python_inc())"}
+PYTHONLIBDIRS := ${shell ${PYTHON} -c "import distutils.sysconfig; print(distutils.sysconfig.get_python_lib())"}
 
 PYSGINCFLAGS = -I$(PYTHONINCDIRS)
 PYSG_LDFLAGS = -L$(PYTHONLIBDIRS)
@@ -1062,18 +1062,18 @@ install: force
 PYSGHOMEMADE := $(ROOTDIR)/pygamma/homemade
 # PYSGPREBUILT is the directory where prebuilt libs should reside. It's used
 # when the Vespa team builds a PyGAMMA installation bundle.
-# PYSGPREBUILT depends on the operating system, whether Python is 32 or 64 
-# bit, and the Python version. Some examples: 
+# PYSGPREBUILT depends on the operating system, whether Python is 32 or 64
+# bit, and the Python version. Some examples:
 #     osx-64-py27, win-32-py25, linux-32-py26
 # OSINFO, PYTHONINFO, and UNDERLINE help to construct the build notes (which
-# are just informative and only need to be human-readable, not 
+# are just informative and only need to be human-readable, not
 # programmatically readable).
 PYSGPREBUILT := $(ROOTDIR)/pygamma/prebuilt
 PYSGPREBUILT := $(PYSGPREBUILT)/linux-
-PYSGPREBUILT := $(PYSGPREBUILT)${shell ${PYTHON} -c "import struct; print '%d-' % (8 * struct.calcsize('P'))"}
-PYSGPREBUILT := $(PYSGPREBUILT)py${shell ${PYTHON} -c "import sys; print '%d%d' % sys.version_info[:2]"}
+PYSGPREBUILT := $(PYSGPREBUILT)${shell ${PYTHON} -c "import struct; print('%d-' % (8 * struct.calcsize('P')))"}
+PYSGPREBUILT := $(PYSGPREBUILT)py${shell ${PYTHON} -c "import sys; print('%d%d' % sys.version_info[:2])"}
 OSINFO := ${shell uname -a}
-PYTHONINFO := ${shell ${PYTHON} -c "import sys; print sys.version"}
+PYTHONINFO := ${shell ${PYTHON} -c "import sys; print(sys.version)"}
 UNDERLINE := "------------------------------------------"
 
 ${PYSGPREBUILT}: force
@@ -1091,7 +1091,7 @@ pysgdist: ${PYSGPREBUILT} ${BINDIR} ${BINDIR}/$(PYS_NAME)
 	@# Copy files to prebuilt and construct the build notes
 	@cp -f  ${BINDIR}/pygamma.py   $(PYSGPREBUILT)
 	@cp -f  ${BINDIR}/$(PYS_NAME)  $(PYSGPREBUILT)
-	@# Note that the first line below creates build_notes.txt, the 
+	@# Note that the first line below creates build_notes.txt, the
 	@# second and subsequent lines append to it.
 	@echo "OS Info (uname -a)"        >  $(PYSGPREBUILT)/build_notes.txt
 	@echo $(UNDERLINE)                >> $(PYSGPREBUILT)/build_notes.txt
@@ -1129,7 +1129,7 @@ strip:
 testclean:
 	@rm -f $(ALLTESTOBJFILES)
 
-distclean: 
+distclean:
 	@${MAKE} clean
 	@rm -f ${BINDIR}/${LIB_NAME}
 	@rm -f $(TEST_PGM)
