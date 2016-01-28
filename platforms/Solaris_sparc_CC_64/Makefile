@@ -3,7 +3,7 @@
 #          Solaris Makefile for the GAMMA and PyGAMMA Libraries
 #
 # This builds GAMMA and PyGAMMA. It assumes that one is using the Solaris
-# Studio C++ compiler. To build PyGAMMA and to run the tests one must have 
+# Studio C++ compiler. To build PyGAMMA and to run the tests one must have
 # Python available.
 #
 # ---------------------------------------------------------------------
@@ -15,10 +15,8 @@
 #    the necessary include files. May require sudo or root privileges.
 #  - Type "make pysg" to compile the PyGAMMA shared library.
 #  - Type "make pysgdist" to compile the PyGAMMA shared library and copy
-#    the output files to the pygamma/homemade directory to prepare for 
-#    installation via `python setup.py install`. This also copies files to
-#    the appropriate prebuilt directory for building a PyGAMMA bundle for
-#    distribution.
+#    the output files to the pygamma/dist_staging directory to prepare for
+#    installation or building a distributable wheel via setup.py.
 #  - Type "make test" to compile and run the GAMMA test program(s).
 #  - Type "make clean" to remove all object files.
 #  - Type "make distclean" to remove all object files libraries, exes.
@@ -92,7 +90,7 @@ SWIG          = swig
 # If you have SWIG >= 2.0.4, you can add -builtin to the SWIG_OPTIONS for
 # a (very) modest performance gain. See here for details:
 # http://scion.duhs.duke.edu/vespa/gamma/wiki/SwigBuiltinTypesBenefit
-SWIG_OPTIONS  = -c++ -python 
+SWIG_OPTIONS  = -c++ -python
 
 GAMMA_ARCH    = sparc-sun-solaris2.10-CC64
 INSTALLDIR    = /nmrnet/gamma
@@ -1060,15 +1058,41 @@ install: force
 	@echo
 
 
-# PYSGDISTDIR is the destination directory for the binary (and pygamma.py)
-# that the SWIG process creates.
-PYSGDISTDIR = $(ROOTDIR)/pygamma/homemade
+# PYSGDIST is the directory where files built for distribution should reside.
+# They'll be used by PyGamma's setup.py.
+PYSGDIST := $(ROOTDIR)/pygamma/dist_staging
 
-pysgdist: ${BINDIR} ${BINDIR}/$(PYS_NAME)
-	@cp -f  ${BINDIR}/pygamma.py   $(PYSGDISTDIR)
-	@cp -f  ${BINDIR}/$(PYS_NAME)  $(PYSGDISTDIR)
+# OSINFO, PYTHONINFO, and UNDERLINE help to construct the build notes (which
+# are just informative and only need to be human-readable, not
+# programmatically readable).
+OSINFO := ${shell uname -a}
+PYTHONINFO := ${shell ${PYTHON} -c "import sys; print(sys.version)"}
+UNDERLINE := "------------------------------------------"
+
+${PYSGDIST}: force
+	@if (test ! -d ./$(PYSGDIST)) then \
+          mkdir $(PYSGDIST); \
+          chmod ug+w $(PYSGDIST); \
+	fi
+
+pysgdist: ${PYSGDIST} ${BINDIR} ${BINDIR}/$(PYS_NAME)
+	@# Copy files to the dist dir
+	@cp -f  ${BINDIR}/pygamma.py   $(PYSGDIST)
+	@cp -f  ${BINDIR}/$(PYS_NAME)  $(PYSGDIST)
 	@# Write a tiny Python file that contains the PyGAMMA version
-	@echo "__version__ = '$(GAMMAVERSION)'" > $(PYSGDISTDIR)/pygamma_version.py
+	@echo "__version__ = '$(GAMMAVERSION)'" > $(PYSGDIST)/pygamma_version.py
+	@# Copy files to the distribution staging area and construct the build notes
+	@# Note that the first line below creates build_notes.txt, the
+	@# second and subsequent lines append to it.
+	@echo "OS Info (uname -a)"        >  $(PYSGDIST)/build_notes.txt
+	@echo $(UNDERLINE)                >> $(PYSGDIST)/build_notes.txt
+	@echo "${OSINFO}"                 >> $(PYSGDIST)/build_notes.txt
+	@echo "Compiler Info (${CXX} -v)" >> $(PYSGDIST)/build_notes.txt
+	@echo $(UNDERLINE)                >> $(PYSGDIST)/build_notes.txt
+	@echo "${shell ${CXX} -v 2>&1}"   >> $(PYSGDIST)/build_notes.txt
+	@echo "Python Info (sys.version)" >> $(PYSGDIST)/build_notes.txt
+	@echo $(UNDERLINE)                >> $(PYSGDIST)/build_notes.txt
+	@echo "${PYTHONINFO}"             >> $(PYSGDIST)/build_notes.txt
 
 
 ########################################################################
@@ -1096,7 +1120,7 @@ strip:
 testclean:
 	@rm -f $(ALLTESTOBJFILES)
 
-distclean: 
+distclean:
 	@${MAKE} clean
 	@rm -f ${BINDIR}/${LIB_NAME}
 	@rm -f $(TEST_PGM)

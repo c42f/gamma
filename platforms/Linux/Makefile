@@ -15,10 +15,8 @@
 #    the necessary include files. May require sudo or root privileges.
 #  - Type "make pysg" to compile the PyGAMMA shared library.
 #  - Type "make pysgdist" to compile the PyGAMMA shared library and copy
-#    the output files to the pygamma/homemade directory to prepare for
-#    installation via `python setup.py install`. This also copies files to
-#    the appropriate prebuilt directory for building a PyGAMMA bundle for
-#    distribution.
+#    the output files to the pygamma/dist_staging directory to prepare for
+#    installation or building a distributable wheel via setup.py.
 #  - Type "make test" to compile and run the GAMMA test program(s).
 #  - Type "make clean" to remove all object files.
 #  - Type "make distclean" to remove all object files libraries, exes.
@@ -1056,52 +1054,41 @@ install: force
 	@echo " * Finished. Compile Command gamma Should Now Work"
 	@echo
 
+# PYSGDIST is the directory where files built for distribution should reside.
+# They'll be used by PyGamma's setup.py.
+PYSGDIST := $(ROOTDIR)/pygamma/dist_staging
 
-# PYSGHOMEMADE is the destination directory for the binary (and pygamma.py)
-# that the build creates. It's use when someone builds a custom PyGAMMA.
-PYSGHOMEMADE := $(ROOTDIR)/pygamma/homemade
-# PYSGPREBUILT is the directory where prebuilt libs should reside. It's used
-# when the Vespa team builds a PyGAMMA installation bundle.
-# PYSGPREBUILT depends on the operating system, whether Python is 32 or 64
-# bit, and the Python version. Some examples:
-#     osx-64-py27, win-32-py25, linux-32-py26
 # OSINFO, PYTHONINFO, and UNDERLINE help to construct the build notes (which
 # are just informative and only need to be human-readable, not
 # programmatically readable).
-PYSGPREBUILT := $(ROOTDIR)/pygamma/prebuilt
-PYSGPREBUILT := $(PYSGPREBUILT)/linux-
-PYSGPREBUILT := $(PYSGPREBUILT)${shell ${PYTHON} -c "import struct; print('%d-' % (8 * struct.calcsize('P')))"}
-PYSGPREBUILT := $(PYSGPREBUILT)py${shell ${PYTHON} -c "import sys; print('%d%d' % sys.version_info[:2])"}
 OSINFO := ${shell uname -a}
 PYTHONINFO := ${shell ${PYTHON} -c "import sys; print(sys.version)"}
 UNDERLINE := "------------------------------------------"
 
-${PYSGPREBUILT}: force
-	@if (test ! -d ./$(PYSGPREBUILT)) then \
-          mkdir $(PYSGPREBUILT); \
-          chmod ug+w $(PYSGPREBUILT); \
+${PYSGDIST}: force
+	@if (test ! -d ./$(PYSGDIST)) then \
+          mkdir $(PYSGDIST); \
+          chmod ug+w $(PYSGDIST); \
 	fi
 
-pysgdist: ${PYSGPREBUILT} ${BINDIR} ${BINDIR}/$(PYS_NAME)
-	@# Copy files to homemade
-	@cp -f  ${BINDIR}/pygamma.py   $(PYSGHOMEMADE)
-	@cp -f  ${BINDIR}/$(PYS_NAME)  $(PYSGHOMEMADE)
+pysgdist: ${PYSGDIST} ${BINDIR} ${BINDIR}/$(PYS_NAME)
+	@# Copy files to the dist dir
+	@cp -f  ${BINDIR}/pygamma.py   $(PYSGDIST)
+	@cp -f  ${BINDIR}/$(PYS_NAME)  $(PYSGDIST)
 	@# Write a tiny Python file that contains the PyGAMMA version
-	@echo "__version__ = '$(GAMMAVERSION)'" > $(PYSGHOMEMADE)/pygamma_version.py
-	@# Copy files to prebuilt and construct the build notes
-	@cp -f  ${BINDIR}/pygamma.py   $(PYSGPREBUILT)
-	@cp -f  ${BINDIR}/$(PYS_NAME)  $(PYSGPREBUILT)
+	@echo "__version__ = '$(GAMMAVERSION)'" > $(PYSGDIST)/pygamma_version.py
+	@# Copy files to the distribution staging area and construct the build notes
 	@# Note that the first line below creates build_notes.txt, the
 	@# second and subsequent lines append to it.
-	@echo "OS Info (uname -a)"        >  $(PYSGPREBUILT)/build_notes.txt
-	@echo $(UNDERLINE)                >> $(PYSGPREBUILT)/build_notes.txt
-	@echo "${OSINFO}"                 >> $(PYSGPREBUILT)/build_notes.txt
-	@echo "Compiler Info (${CXX} -v)" >> $(PYSGPREBUILT)/build_notes.txt
-	@echo $(UNDERLINE)                >> $(PYSGPREBUILT)/build_notes.txt
-	@echo "${shell ${CXX} -v 2>&1}"   >> $(PYSGPREBUILT)/build_notes.txt
-	@echo "Python Info (sys.version)" >> $(PYSGPREBUILT)/build_notes.txt
-	@echo $(UNDERLINE)                >> $(PYSGPREBUILT)/build_notes.txt
-	@echo "${PYTHONINFO}"             >> $(PYSGPREBUILT)/build_notes.txt
+	@echo "OS Info (uname -a)"        >  $(PYSGDIST)/build_notes.txt
+	@echo $(UNDERLINE)                >> $(PYSGDIST)/build_notes.txt
+	@echo "${OSINFO}"                 >> $(PYSGDIST)/build_notes.txt
+	@echo "Compiler Info (${CXX} -v)" >> $(PYSGDIST)/build_notes.txt
+	@echo $(UNDERLINE)                >> $(PYSGDIST)/build_notes.txt
+	@echo "${shell ${CXX} -v 2>&1}"   >> $(PYSGDIST)/build_notes.txt
+	@echo "Python Info (sys.version)" >> $(PYSGDIST)/build_notes.txt
+	@echo $(UNDERLINE)                >> $(PYSGDIST)/build_notes.txt
+	@echo "${PYTHONINFO}"             >> $(PYSGDIST)/build_notes.txt
 
 
 ########################################################################

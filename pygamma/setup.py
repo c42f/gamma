@@ -1,55 +1,21 @@
 # Python modules
 from __future__ import division
-import distutils.core
+import setuptools
 import sys
 import os
-import tempfile
 import shutil
-####################   About adding imports   ####################
-# Since Python 2.4 is still fairly prevalent (thanks in part to RHEL and
-# CentOS), it seems likely that people will try to run this under Python
-# 2.4 or maybe even 2.3. We can inform them gracefully when we detect an
-# inadequate Python. However, if we attempt any imports here that assume the
-# Python 2.5 standard lib is available, Python will raise an ImportError and
-# the code will die here before we can warn them gracefully. So don't do that!
-#
-# Python 2.2 is really old; we don't need to worry about it.
-#
-# There's only a few modules/packages in 2.5 that aren't in 2.3/2.4 that
-# you're likely to want to use here. If you need one, avoid importing it
-# here; do so later in the code once we've verified Python >= 2.5. Here's
-# a list of modules that were new in Python 2.5 --
-#   - The ctypes package
-#   - The ElementTree package
-#   - The hashlib package
-#   - The sqlite3 package
-
-# Also note that if you include Python syntax that's 2.5-specific, older
-# Pythons will fail gracelessly when they try to run this. The three things
-# that you'd be most likely to tempted to use here which aren't in
-# Python <= 2.5 are --
-#   - The Set type
-#   - The Decimal type
-#   - The ternary if statement, e.g. --
-#           beverage = "tea" if (meal == "breakfast") else "beer"
 
 # Check Python version ASAP
-major, minor = sys.version_info[0:2]
+major, minor = sys.version_info[:2]
 
-if (major < 2) or (minor < 5):
-    msg = "Sorry, this is Python %d.%d " % (major, minor)
-    msg += "and PyGAMMA requires Python >= 2.5."
+if (major != 2) or (minor != 7):
+    msg = "Sorry, PyGAMMA requires Python 2.7, and this is Python %d.%d." % (major, minor)
     print msg
     sys.exit(-1)
 
-# OK, now I know we're running Python >= 2.5 so now I can do my imports
-# that are Python 2.5-specific.
-
-cleanup = None
-
 # The VERSION file will be in the current dir if this is being run from an
 # expanded tarball/ZIP file (i.e. a normal end user distro) or in the parent
-# dir if this is being run from an SVN tree. The latter is not just a 
+# dir if this is being run from an SVN tree. The latter is not just a
 # developer-only thing. End users will need to use it if they're compiling
 # their own binaries.
 version_path = "VERSION"
@@ -59,13 +25,12 @@ if not os.path.exists(version_path):
 version = open(version_path, "rb").read().strip()
 
 NAME = "pygamma"
-DESCRIPTION = "The Pythonized version of the GAMMA C++ Library."
-LONG_DESCRIPTION = ""
-MAINTAINER = "David Todd"
-MAINTAINER_EMAIL = "david.todd@va.gov"
-URL = "http://scion.duhs.duke.edu/svn/gamma/"
-DOWNLOAD_URL = "http://scion.duhs.duke.edu/vespa/gamma/wiki/PyGamma"
-PY_MODULES = ["pygamma"]
+DESCRIPTION = "A Python wrapper for the GAMMA C++ Library."
+LONG_DESCRIPTION = DESCRIPTION
+MAINTAINER = "Brian Soher"
+MAINTAINER_EMAIL = "bsoher@briansoher.com"
+URL = "https://scion.duhs.duke.edu/vespa/gamma"
+DOWNLOAD_URL = "https://scion.duhs.duke.edu/vespa/gamma/wiki/PyGammaDownloads"
 # http://pypi.python.org/pypi?:action=list_classifiers
 CLASSIFIERS = [ 'Development Status :: 4 - Beta',
                 'Intended Audience :: Science/Research',
@@ -77,213 +42,104 @@ CLASSIFIERS = [ 'Development Status :: 4 - Beta',
                 "Operating System :: Unix",
                 ]
 LICENSE = "http://creativecommons.org/licenses/BSD/"
-KEYWORDS = "GAMMA pygamma MRI MR Spectroscopy"
+KEYWORDS = "GAMMA pygamma MRI MRS MR magnetic resonance spectroscopy"
+PLATFORMS = 'Linux, OS X, Windows, Solaris, POSIX'
 
 
-def list_files(path, ignore_dot_py=False):
-    """Given a path, returns a list of the files found there. The files
+def list_non_py_files(path):
+    """Given a path, returns a list of the non-Python files found there. The files
     returned are just names; they're not fully qualified.
 
-    Directories, files that start with '.' and .pyc files are always excluded.
-    If ignore_dot_py is True, .py files are also excluded.
+    Directories, files that start with '.', .py and .pyc files are excluded.
 
     This function doesn't travel into subdirectories.
     """
     filenames = [ ]
 
-    checks = [ ]
-
-    # I implement the checks as a series of functions. Implementing them 
-    # as an if statement when one of them was optional (an iffy if) was 
-    # complicated.
-    checks.append(lambda filename: os.path.isfile(os.path.join(path, filename)))
-    checks.append(lambda filename: not filename.startswith("."))
-    checks.append(lambda filename: not filename.endswith(".pyc"))
-    if ignore_dot_py:
-        checks.append(lambda filename: not filename.endswith(".py"))
-
-    all_checks = lambda filename: all([check(filename) for check in checks])
-
     for filename in os.listdir(path):
-        if all_checks(filename):
+        if os.path.isfile(os.path.join(path, filename)) and \
+           not filename.startswith(".") and \
+           not filename.endswith(".pyc") and \
+           not filename.endswith(".py"):
             filenames.append(filename)
 
     return filenames
 
 
-class PlatformSniffer(object):
-    """A class to sniff out three pieces of platform data that are
-    important to me. The class does nothing other than to examine the
-    platform during __init__() and then summarize its findings when
-    converted to a string.
+# dist_staging is where files reside in preparation for creating an installable package and/or a
+# distributable wheel file. The build process (which is Makefile execution under *nix, the
+# post_build.py step under Windows) places files here, as does some code below.
+package_dir = { "pygamma" : 'dist_staging' }
 
-    The three pieces of data that I care about are the platform name
-    (normalized to "osx", "linux" or "win"), whether or not Python is compiled
-    in 32 or 64 bit mode, and the major & minor Python version numbers.
-    """
-    def __init__(self):
-        # Python version is easy to get
-        self.python_version = "%d%d" % sys.version_info[:2]
+# package_data tells setup about files other than .py that I want to be in the package. I grab
+# everything in the staging directory that's not a .py file and stuff it into package_data.
+package_data = { "pygamma" : list_non_py_files('dist_staging') }
 
-        # Get 32/64 bit mode info.
-        #
-        # It's trickier than you might think to get this information. Python's
-        # platform.architecture() can get confused under OS X, and the 
-        # once-preferred alternative of testing sys.maxint doesn't work under 
-        # Win64. 
-        # The solution below is blessed by the wisdom of stackoverflow.com. 
-        # References -- 
-        #     http://stackoverflow.com/questions/1405913/how-do-i-determine-if-my-python-shell-is-executing-in-32bit-or-64bit-mode
-        #     http://stackoverflow.com/questions/3411079/why-does-the-python-2-7-amd-64-installer-seem-to-run-python-in-32-bit-mode
-        #     http://mail.python.org/pipermail/python-list/2010-October/1258275.html
-        #     http://groups.google.com/group/comp.lang.python/msg/5e363fcd9131dec4
-        if hasattr(sys, "maxsize"):
-            # This works under Python >= 2.6
-            self.bits = 64 if (sys.maxsize > 2**32) else 32
-        else:
-            # This works under Python 2.5.
-            import struct
-            self.bits = 8 * struct.calcsize("P")
-
-        # Get & normalize the platform name
-        self.platform = sys.platform.lower()
-
-        # In the list of elifs below, the check for "darwin" has to go before
-        # the check for "win" (because darwin contains "win").
-        if "linux" in self.platform:
-            self.platform = "linux"
-        elif "darwin" in self.platform:
-            self.platform = "osx"
-        elif "win" in self.platform:
-            self.platform = "win"
-        #else:
-            # This is some other platform which we don't support, so it 
-            # doesn't need to be normalized.
-
-
-    def __str__(self):
-        """Formats platform info to match the style of the prebuilt
-        directory names.
-        """
-        return "%s-%s-py%s" % (self.platform, self.bits, self.python_version)
-
-
-########################     Main  starts  here   #####################
-
-# This install requires some file shuffling. The shuffling is driven by 
-# distutils' requirement that everything that I want installed in a package 
-# must be in the same directory when I called distutils.core.setup().
-
-# Unfortunately, the files I want to install come from several different 
-# locations which I can only determine at runtime. (See the comments and code
-# below for details.) So I figure out which files I need and then copy them 
-# all into a temp directory and pass that directory to distutils.core.setup(). 
-
-# The first decision I need to make at runtime is which PyGAMMA binaries to
-# install. We provide binaries for common platforms in the prebuilt directory,
-# but we won't satisfy everyone and those users will have to build their own.
-# In addition, some may prefer their own version to the prebuilt ones we 
-# offer.
-
-# Binaries built by the user always land in the homemade directory, and if we
-# find binaries there we always prefer them to prebuilt ones.
-
-# Another wrinkle is that homemade binaries come with a pygamma_version.py
-# file whereas the prebuilt binaries don't. This code, therefore, needs to 
-# write that file if it doesn't exist.
-
-# Last but not least, both homemade and prebuilt binaries have to have an
-# __init__.py installed alongside them to make pygamma a proper package.
+# The package needs an __init__.py file to make pygamma a proper package.
 # Many __init__.py files are blank; this one is not. In order to manage the
 # source code somewhat sanely, I put the code in a file called init.py and
-# copy it to temp_dir/__init__.py during this setup. That way the file is
+# copy it to dist_staging/__init__.py during this setup. That way the file is
 # under source code management but no one will think that it's meant to make
 # the setup.py directory a package.
+shutil.copy("init.py", os.path.join('dist_staging', "__init__.py"))
+
+# The current package for building wheels (v0.26.0) has some shortcomings when it comes to
+# building wheels out of binaries that aren't compiled by the setup process itself. That's
+# documented in wheel ticket 128:
+# https://bitbucket.org/pypa/wheel/issues/128/allow-forcing-pure-platform-specific-wheel
+# If setup is being invoked to build a wheel, we subclass the bdist_wheel command to get
+# the behavior we want.
+try:
+    from wheel.bdist_wheel import bdist_wheel
+
+    class my_bdist_wheel(bdist_wheel):
+        def finalize_options(self):
+            """Subclass finalize_options() to fix the value of root_is_pure"""
+            bdist_wheel.finalize_options(self)
+            # This *is not* a pure Python package
+            self.root_is_pure = False
+
+        def get_tag(self):
+            """Subclass get_tag() to fix the platform tag"""
+            tag = bdist_wheel.get_tag(self)
+
+            if sys.platform == 'darwin':
+                # Under OS X, bdist_wheel.get_tag() returns a platform tag that contains the min
+                # OS X version with which this Python is compatible (e.g. 'macosx_10_5_x86_64' for
+                # Anaconda Python). That's appropriate for C/C++ extensions built via the Python
+                # build process, but not for PyGamma which is built via a custom build process.
+                # PyGamma's min OS X version is determined by a value in the Makefile, so we give
+                # the make process responsiblity for writing a file that contains an appropriate
+                # platform tag (e.g. 'macosx_10_9_x86_64').
+                platform_tag = open('dist_staging/wheel_platform_tag.txt', 'rb').read().strip()
+                tag = (tag[0], tag[1], platform_tag)
+            #else:
+                # Do nothing. On Linux and Windows, bdist_wheel.get_tag() generates an
+                # appropriate platform tag.
+
+            return tag
+
+    cmdclass = {'bdist_wheel': my_bdist_wheel}
+except ImportError:
+    # This is an error we can ignore -- only people who want to create wheels need the
+    # wheel package installed. Others can still use this setup.py to install homegrown
+    # versions of PyGamma.
+    cmdclass = {}
 
 
-
-
-# cwd = current working directory
-cwd = os.getcwd()
-
-# See if there's useful homemade files 
-bin_path = os.path.join(cwd, "homemade")
-
-filenames = list_files(bin_path)
-
-use_homemade_binary = \
-            any([filename.startswith("_pygamma") for filename in filenames])
-
-if use_homemade_binary:
-    # Found homemade files; install can continue
-    print "Using homemade binaries..."
-else:
-    # No homemade files. See if there's anything useful in prebuilt. This
-    # code will only use a prebuilt directory if (a) the directory name 
-    # matches the current platform and (b) the directory is not empty.
-
-    # platform will be something like "osx-32-py25"
-    platform = str(PlatformSniffer())
-    
-    bin_path = os.path.join(cwd, "prebuilt", platform)
-
-    if os.path.exists(bin_path):
-        filenames = list_files(bin_path)
-        if filenames:
-            # Bingo! The path exists and is not empty.
-            print "Using prebuilt binaries from %s..." % platform
-            filenames = list_files(bin_path)
-    else:
-        # No prebuilt binaries were found. The install will fail.
-        filenames = [ ]
-
-
-if filenames:
-    temp_dir = tempfile.mkdtemp()
-    
-    if not use_homemade_binary:
-        # When using prebuilt binaries, I have to write the pygamma_version.py
-        # file.
-        s = "__version__ = '%s'" % version
-        open(os.path.join(temp_dir, "pygamma_version.py"), "w").write(s)
-
-    # Copy everything in filenames to the temp directory
-    for filename in filenames:
-        shutil.copy(os.path.join(bin_path, filename), temp_dir)
-    
-    # Copy & rename init.py ==> __init__.py
-    shutil.copy("init.py", os.path.join(temp_dir, "__init__.py"))
-else:
-    # No binary files. We can't continue.
-    print """
-Sorry, setup doesn't have binaries for your platform and Python version.
-You'll have to make them yourself by following the instructions here:
-http://scion.duhs.duke.edu/vespa/gamma/wiki/PyGamma
-"""
-    sys.exit(-1)
-
-
-# package_data tells setup about files other than .py that I want copied.
-# I grab everything in the bin directory that's not a .py file and stuff it
-# into package_data.
-
-package_dir = { "pygamma" : temp_dir }
-
-package_data = { "pygamma" : list_files(temp_dir, True) }
-
-packages = [ "pygamma" ]
-
-distutils.core.setup(name=NAME,
-                     version=version,
-                     package_dir=package_dir,
-                     packages=packages,
-                     package_data=package_data,
-                     url=URL,
-                     maintainer=MAINTAINER,
-                     maintainer_email=MAINTAINER_EMAIL,
-                     )
-
-# Clean up.
-for filename in os.listdir(temp_dir):
-    os.remove(os.path.join(temp_dir, filename))
-os.rmdir(temp_dir)
+setuptools.setup(name=NAME,
+                 version=version,
+                 package_dir=package_dir,
+                 packages=["pygamma"],
+                 package_data=package_data,
+                 cmdclass=cmdclass,
+                 url=URL,
+                 maintainer=MAINTAINER,
+                 maintainer_email=MAINTAINER_EMAIL,
+                 classifiers=CLASSIFIERS,
+                 license=LICENSE,
+                 keywords=KEYWORDS,
+                 description=DESCRIPTION,
+                 long_description=LONG_DESCRIPTION,
+                 platforms=PLATFORMS,
+                 )
