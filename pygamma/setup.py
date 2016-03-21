@@ -1,9 +1,18 @@
 # Python modules
 from __future__ import division
-import setuptools
 import sys
 import os
 import shutil
+
+# 3rd party imports
+# setuptools is distributed with Python.org Python, but it's still not part of the standard
+# library so it might not be present (especially on older Pythons). We can install PyGamma
+# without it. It's only required if you want to build a wheel.
+try:
+    import setuptools as distutools
+except ImportError:
+    import distutils.core as distutools
+
 
 # Check Python version ASAP
 major, minor = sys.version_info[:2]
@@ -127,7 +136,7 @@ except ImportError:
     cmdclass = {}
 
 
-setuptools.setup(name=NAME,
+distutools.setup(name=NAME,
                  version=version,
                  package_dir=package_dir,
                  packages=["pygamma"],
