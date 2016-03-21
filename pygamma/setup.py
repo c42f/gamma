@@ -41,15 +41,15 @@ MAINTAINER_EMAIL = "bsoher@briansoher.com"
 URL = "https://scion.duhs.duke.edu/vespa/gamma"
 DOWNLOAD_URL = "https://scion.duhs.duke.edu/vespa/gamma/wiki/PyGammaDownloads"
 # http://pypi.python.org/pypi?:action=list_classifiers
-CLASSIFIERS = [ 'Development Status :: 4 - Beta',
-                'Intended Audience :: Science/Research',
-                "License :: OSI Approved :: BSD License",
-                "Operating System :: MacOS :: MacOS X",
-                "Operating System :: POSIX :: Linux",
-                "Operating System :: POSIX :: SunOS/Solaris",
-                "Operating System :: Microsoft :: Windows",
-                "Operating System :: Unix",
-                ]
+CLASSIFIERS = ['Development Status :: 4 - Beta',
+               'Intended Audience :: Science/Research',
+               "License :: OSI Approved :: BSD License",
+               "Operating System :: MacOS :: MacOS X",
+               "Operating System :: POSIX :: Linux",
+               "Operating System :: POSIX :: SunOS/Solaris",
+               "Operating System :: Microsoft :: Windows",
+               "Operating System :: Unix",
+               ]
 LICENSE = "http://creativecommons.org/licenses/BSD/"
 KEYWORDS = "GAMMA pygamma MRI MRS MR magnetic resonance spectroscopy"
 PLATFORMS = 'Linux, OS X, Windows, Solaris, POSIX'
@@ -63,7 +63,7 @@ def list_non_py_files(path):
 
     This function doesn't travel into subdirectories.
     """
-    filenames = [ ]
+    filenames = []
 
     for filename in os.listdir(path):
         if os.path.isfile(os.path.join(path, filename)) and \
@@ -78,11 +78,11 @@ def list_non_py_files(path):
 # dist_staging is where files reside in preparation for creating an installable package and/or a
 # distributable wheel file. The build process (which is Makefile execution under *nix, the
 # post_build.py step under Windows) places files here, as does some code below.
-package_dir = { "pygamma" : 'dist_staging' }
+package_dir = {"pygamma": 'dist_staging'}
 
 # package_data tells setup about files other than .py that I want to be in the package. I grab
 # everything in the staging directory that's not a .py file and stuff it into package_data.
-package_data = { "pygamma" : list_non_py_files('dist_staging') }
+package_data = {"pygamma": list_non_py_files('dist_staging')}
 
 # The package needs an __init__.py file to make pygamma a proper package.
 # Many __init__.py files are blank; this one is not. In order to manage the
@@ -122,7 +122,7 @@ try:
                 # platform tag (e.g. 'macosx_10_9_x86_64').
                 platform_tag = open('dist_staging/wheel_platform_tag.txt', 'rb').read().strip()
                 tag = (tag[0], tag[1], platform_tag)
-            #else:
+            # else:
                 # Do nothing. On Linux and Windows, bdist_wheel.get_tag() generates an
                 # appropriate platform tag.
 
