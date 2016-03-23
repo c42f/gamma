@@ -56,7 +56,7 @@ MAINTAINER = "Brian Soher"
 MAINTAINER_EMAIL = "bsoher@briansoher.com"
 URL = "https://scion.duhs.duke.edu/vespa/gamma"
 # http://pypi.python.org/pypi?:action=list_classifiers
-CLASSIFIERS = ['Development Status :: 4 - Beta',
+CLASSIFIERS = ['Development Status :: 5 - Production/Stable',
                'Intended Audience :: Science/Research',
                "License :: OSI Approved :: BSD License",
                "Operating System :: MacOS :: MacOS X",
