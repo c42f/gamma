@@ -35,11 +35,26 @@ version = open(version_path, "rb").read().strip()
 
 NAME = "pygamma"
 DESCRIPTION = "A Python wrapper for the GAMMA C++ Library."
-LONG_DESCRIPTION = DESCRIPTION
+LONG_DESCRIPTION = """
+GAMMA is a C++ library for the simulation of magnetic resonance (NMR, MRS) experiments. It
+provides a simple and intuitive means to construct simulation programs to suit researchers'
+individual needs. GAMMA is an acronym for a General Approach to Magnetic resonance
+Mathematical Analysis.
+
+PyGamma is a Python wrapper around GAMMA that makes almost all of GAMMA's API available via
+Python.
+
+Both GAMMA and PyGamma work on OS X, Linux, and Windows.
+"""
+# Note that Python's distutils writes a PKG-INFO file that replaces the author metadata with
+# the maintainer metadata. As a result, it's impossible (AFAICT) to get correct author metadata
+# to appear on PyPI.
+# https://bugs.python.org/issue16108
+AUTHOR = "Dr. Scott A. Smith and Dr. Tilo Levante"
+AUTHOR_EMAIL = "no_known_address@example.com"
 MAINTAINER = "Brian Soher"
 MAINTAINER_EMAIL = "bsoher@briansoher.com"
 URL = "https://scion.duhs.duke.edu/vespa/gamma"
-DOWNLOAD_URL = "https://scion.duhs.duke.edu/vespa/gamma/wiki/PyGammaDownloads"
 # http://pypi.python.org/pypi?:action=list_classifiers
 CLASSIFIERS = ['Development Status :: 4 - Beta',
                'Intended Audience :: Science/Research',
@@ -143,6 +158,8 @@ distutools.setup(name=NAME,
                  package_data=package_data,
                  cmdclass=cmdclass,
                  url=URL,
+                 author=AUTHOR,
+                 author_email=AUTHOR_EMAIL,
                  maintainer=MAINTAINER,
                  maintainer_email=MAINTAINER_EMAIL,
                  classifiers=CLASSIFIERS,
