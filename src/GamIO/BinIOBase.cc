@@ -28,7 +28,7 @@
 #ifndef   GBinIOB_cc_				// Is file already included?
 #  define GBinIOB_cc_ 1				// If no, then remember it
 #  if defined(GAMPRAGMA)			// Using the GNU compiler?
-#    pragma implementation			// This is the implementation 
+#    pragma implementation			// This is the implementation
 #  endif
 
 #include <GamIO/BinIOBase.h>			// Inlcude the header
@@ -44,19 +44,19 @@
 union longchars
   {
   long longval;
-  char chars[4]; 
+  char chars[4];
   };
 
 union shortchars
   {
   short shortval;
-  char chars[2]; 
+  char chars[2];
   };
- 
+
 union intchars
   {
   int intval;
-  char chars[2]; 
+  char chars[2];
   };
 */
 
@@ -71,8 +71,8 @@ union intchars
     { return mkdir(dname.c_str()); }
 #elif defined(_MSC_VER)
   int MakeADir(const std::string& dname, int no)
-    { 
-		return _mkdir(dname.c_str()); 
+    {
+		return _mkdir(dname.c_str());
 	  }
 #else
   int MakeADir(const std::string& dname, int no)

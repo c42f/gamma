@@ -28,7 +28,7 @@
 #ifndef   GBinIOB_h_			// Is file already included?
 #  define GBinIOB_h_ 1			// If no, then remember it
 #  if defined(GAMPRAGMA)		// Using the GNU compiler?
-#    pragma interface			// This is the interface 
+#    pragma interface			// This is the interface
 #  endif
 
 #ifdef _MSC_VER
@@ -44,25 +44,25 @@
 union longchars
   {
   int32_t longval;
-  char chars[4]; 
+  char chars[4];
   };
 
 union doublechars
   {
   double doubleval;
-  char chars[8]; 
+  char chars[8];
   };
 
 union shortchars
   {
   short shortval;
-  char chars[2]; 
+  char chars[2];
   };
- 
+
 union intchars
   {
   int intval;
-  char chars[2]; 
+  char chars[2];
   };
 
 void Swap(int32_t& i);
