@@ -1,3 +1,64 @@
+Version 4.3.3 - 25 Mar 2016
+------------------------------------------------------------------------------
+
+This is the first release in over 4 years, however there have been only
+a few actual bug fixes within the GAMMA code while the rest of the 
+changes have been due to code syntax and make file issues for compiling
+on newer versions of OSX, linux and Windows. A condensed listing of 
+GAMMA changes is given at the end of this email, while a full listing
+can always be found in our SVN log file.
+
+PyGamma has undergone both a significant and long overdue update.
+
+PyGamma installation files are now hosted at the Python Package Index (PyPI).
+32- and 64-bit binaries for Windows, OS X, and Linux are available. 
+Due to the prevalence of 64 bit platforms, version 4.3.3 is the last PyGamma 
+for which we plan to provide 32-bit binaries. 
+
+PyGamma is installable via pip, Python's preferred installer program.
+
+In no particular order, the following changes have been made:
+
+- Improved automation and error checking for make files and PyGamma builds
+- added extern declarations for evolve and evolve_ip
+- Changed the variable nil to nnil since this is now a predefined variable
+  under OSX 10.9.2 and clang
+- Added explicit braces for if/else to avoid warnings on OSX 10.9.
+- Changed friend definitions for proj to make it compile under OSX 10.9. 
+- Change handling of diagonal elements that are not fully real when building
+  a Hermitian matrix. We output a warning and truncate the imaginary part of 
+  the diagonal elements. Otherwise setting up exchange operators sometimes 
+  can become a problem.
+- Cleaned code syntax to eliminate compiler warnings.
+- Replaced the SigmaSS routines with new ones from 
+  balzan.riccardo@parisdescartes.fr which work independent of the basis the 
+  operators are in. Seems to work better than the original ones that depended
+  on the basis and only gave the correct steady-state density operator if 
+  they were in the default Hilbert basis.
+- Change std::_Ios_Openmode to std::ios_base::openmode which should be the 
+  portable implementations. This makes BiIOBase compile under Mac OSX 10.10.
+- Deleted the -isysroot which is as far as I can tell no longer needed on Mac.
+  I did not change the minimum OS version but on 10.10 you should set this to
+  10.9 or it will not compile. On my 10.9 Mac 10.6 still works.  
+- submitted by Michael Tesch
+  - fixed class name on renames, added python qualifier
+  - fix probably bug in io, cleanup compiler warnings related to time_t, 
+    which is a scalar
+  - remove silly star (pointer reference) to stop compiler warning
+- Corrected mistake when assigning initial value to time_t longtime in 
+  XWinOutd.cc  Should be a long and not a pointer
+- Changed wrong scaling of the A21 components of the spatial tensor in 
+  IntRank2A.cc
+- Bug reported by Riccardo Balzan: changed check for gcc version 3 and 4 to 
+  also include version 5 and  newer such that it compiles also with updated 
+  compilers.
+- Big changes to how PyGamma is packaged and distributed.The main driver for 
+  this is the goal of distributing PyGamma via wheel files rather than 
+  tarballs/zip files that contain prebuilt binaries for all platforms.
+- PyGamma no longer supports any Python versions other than 64-bit Python 2.7.
+
+
+
 Version 4.3.2 - 27 Jan 2012
 ------------------------------------------------------------------------------
 There are no new features in this release. The only change is in the OS X 
