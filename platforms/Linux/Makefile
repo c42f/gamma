@@ -1040,7 +1040,7 @@ installlib: force
 #
 ######################################################################
 
-install: force
+install: so lib 
 	@echo
 	@echo "           Installing GAMMA"
 	@echo
