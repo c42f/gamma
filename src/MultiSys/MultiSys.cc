@@ -300,7 +300,7 @@ bool multi_sys::getComps(const ParameterSet& pset, int ncmps,
   sys_dynamic cmp, cmp0;			// A single component
   bool TF =true;				// Assume we'll get them OK
   for(int i=0; i<ncmps; i++)			// Loop over all components
-    {						// & try to get each one
+    { cmp = sys_dynamic();						// & try to get each one
     if(getComp(pset,i,cmp,true))		//   Look for component i
       cmps.push_back(cmp);			//   & store if found
     else					//   If not found, take some
