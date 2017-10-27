@@ -757,7 +757,7 @@ void multi_sys::AddComp(const sys_dynamic& sys, double pval)
   }
 
 void multi_sys::CheckComp(unsigned n) const
-  { if(n>=0 && n<_Comps.size()) MSYSfatal(47); }
+  { if(!(n>=0 && n<_Comps.size())) MSYSfatal(47); }
 
 // ____________________________________________________________________________
 // E                 MULTI-SPIN EXCHANGE PROCESS ACCESS
