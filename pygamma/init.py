@@ -11,13 +11,14 @@
 # to simply `import pygamma`
 
 from __future__ import division
+from __future__ import absolute_import
 
-from pygamma import *
+from .pygamma import *
 
 # I also need to get the version number from pygamma_version. 
 # 'import *' doesn't import anything beginning with a double underscore, 
 # so we have to import the important __version__ string explicitly.
-from pygamma_version import __version__
+from .pygamma_version import __version__
 
 del pygamma
 

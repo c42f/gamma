@@ -114,8 +114,8 @@ def cmp_nn(file1, file2):
     f2.close()
 
     if is_verbose and result == False:
-        print file1 + ": '" + L1 + "'"
-        print file2 + ": '" + L2 + "'"
+        print(file1 + ": '" + L1 + "'")
+        print(file2 + ": '" + L2 + "'")
 
     return result
 
@@ -130,7 +130,7 @@ def cmp_mat(file1, file2):
 
     # Warning: Cannot guarantee that the data will be the 0th element in this array!!
 
-    keylist = contents1.keys()
+    keylist = list(contents1.keys())
 
     for key in keylist:
         if key.startswith("test_"):        
@@ -139,17 +139,17 @@ def cmp_mat(file1, file2):
             data2 = contents2[ key ]
 
             if scipy.rank(data1) != scipy.rank(data2):
-                print "Data sets in the two files are not of the same rank"
+                print("Data sets in the two files are not of the same rank")
                 return False
 
             if data1.shape != data2.shape:
-                print "Data sets in the two files do not have the same shape"
+                print("Data sets in the two files do not have the same shape")
                 return False
 
             #print "About to run compare_data()"
             return compare_data(data1, data2)
 
-    print "No data to compare!"
+    print("No data to compare!")
     return True
 
 
@@ -210,8 +210,8 @@ def compare_values(test_value, expected_value, max_relative_difference, do_not_c
     else:
         if test_value != expected_value:
             if do_print == True:
-                print "Other:"
-                print "test_value = " + str(test_value) + " and expected_value = " + str(expected_value)
+                print("Other:")
+                print("test_value = " + str(test_value) + " and expected_value = " + str(expected_value))
             return False
         else:
             return True
@@ -226,8 +226,8 @@ def compare_floats(test_value, expected_value, max_rel_diff, do_not_care_point, 
     if abs_difference > do_not_care_point:
         if abs_difference > ( abs(expected_value) * max_rel_diff ):
             if do_print == True:
-                print "float:"
-                print "test_value = %.13f and expected_value = %.13f" % (test_value, expected_value)
+                print("float:")
+                print("test_value = %.13f and expected_value = %.13f" % (test_value, expected_value))
             return False
     
     return True
@@ -245,11 +245,11 @@ def compare_complex(test_value, expected_value, max_rel_diff, dncp, do_print = F
     if abs_difference > dncp:
         if abs_difference > ( abs(expected_value) * max_rel_diff ):
             if do_print == True:
-                print "complex-A:"
-                print "I values are %.29f, %.29f" % (tI, eI)
-                print "R values are %.29f, %.29f" % (tR, eR)
-                print "test_value = (%.11f + %.11fj)" % (tR, tI)
-                print "expected_value = (%.11f + %.11fj)" % (eR, eI)
+                print("complex-A:")
+                print("I values are %.29f, %.29f" % (tI, eI))
+                print("R values are %.29f, %.29f" % (tR, eR))
+                print("test_value = (%.11f + %.11fj)" % (tR, tI))
+                print("expected_value = (%.11f + %.11fj)" % (eR, eI))
             return False
 
     component_relative_diff =  0.000002
@@ -260,12 +260,12 @@ def compare_complex(test_value, expected_value, max_rel_diff, dncp, do_print = F
 
     if compareR == False or compareI == False:
         if do_print == True:
-            print "complex-B:"
-            print "compareR == " + str(compareR) + "  compareI == " + str(compareI)
-            print "I values are %.29f, %.29f" % (tI, eI)
-            print "R values are %.29f, %.29f" % (tR, eR)
-            print "test_value = (%.11f + %.11fj)" % (tR, tI)
-            print "expected_value = (%.11f + %.11fj)" % (eR, eI)
+            print("complex-B:")
+            print("compareR == " + str(compareR) + "  compareI == " + str(compareI))
+            print("I values are %.29f, %.29f" % (tI, eI))
+            print("R values are %.29f, %.29f" % (tR, eR))
+            print("test_value = (%.11f + %.11fj)" % (tR, tI))
+            print("expected_value = (%.11f + %.11fj)" % (eR, eI))
         return False
     else:
         return True
@@ -286,7 +286,7 @@ total_failures = 0
 total_comparisons = 0
 is_verbose = options.verbose
 
-print ""
+print("")
 
 for filename in filelist:
     bad_thing_happened = False
@@ -335,25 +335,25 @@ for filename in filelist:
                     # then we should delete the first one.
                     delfiles.append( filenames[0].strip() )
         else:
-            print ""
-            print "*** Warning: Do not understand instruction, " + s + " !  ***"
-            print ""         
+            print("")
+            print("*** Warning: Do not understand instruction, " + s + " !  ***")
+            print("")
             continue
 
 
-    print "Deleting old output files: "
+    print("Deleting old output files: ")
     for dfile in delfiles:
         if dfile.startswith("golden") or dfile.startswith("./golden") or dfile.startswith(".\golden"):
-            print ""
-            print "    *** WARNING: Do not want to delete your golden files, " + dfile
-            print "    Double check how you wrote your suite, " + filename
-            print ""
+            print("")
+            print("    *** WARNING: Do not want to delete your golden files, " + dfile)
+            print("    Double check how you wrote your suite, " + filename)
+            print("")
             continue
         if os.path.exists(dfile) == True:
-            print "    " + dfile
+            print("    " + dfile)
             os.remove(dfile)
 
-    print ""
+    print("")
 
     # Now execute all the executable lines...
 
@@ -371,13 +371,13 @@ for filename in filelist:
 
         if s == "suite":
             current_suite = substrings[1].strip()
-            print "Running Suite: " + current_suite
+            print("Running Suite: " + current_suite)
         if s == "command":
             command = ""
             command += options.path
             command += substrings[1].lstrip()
-            print ""
-            print "running command: " + command
+            print("")
+            print("running command: " + command)
             sys.stdout.flush()
 
 
@@ -387,9 +387,9 @@ for filename in filelist:
             t2 = time.time()
             if retcode < 0:
                 s1 = "Attempt to call " + substrings[1] + " was terminated by signal " + str(retcode)
-                print >> sys.stderr, s1
+                print(s1, file=sys.stderr)
             else:
-                print '\'%s\' took %0.3f seconds' %(command, (t2-t1))
+                print('\'%s\' took %0.3f seconds' %(command, (t2-t1)))
 
         if s == "compare":
             total_comparisons += 1
@@ -399,15 +399,15 @@ for filename in filelist:
 
             filenames = st.split(",")
             if len(filenames) < 2:
-                print "Error while attempting to compare files"
-                print "Filecount was too small"
+                print("Error while attempting to compare files")
+                print("Filecount was too small")
                 total_failures += 1
                 continue
 
             file1 = filenames[0]
             file2 = filenames[1].lstrip()
             if is_verbose == True:
-                print "Comparing: " + file1 + " " + file2
+                print("Comparing: " + file1 + " " + file2)
                 sys.stdout.flush()
 
             filebad = False
@@ -420,9 +420,9 @@ for filename in filelist:
                 filebad = True
             if filebad:
                 sys.stdout.write(" *** TEST FAILED ***\n")
-                print ""
-                print "Warning: Could not find file, " + fileout + " required for comparison"
-                print ""
+                print("")
+                print("Warning: Could not find file, " + fileout + " required for comparison")
+                print("")
                 total_failures += 1
                 continue
 
@@ -430,17 +430,17 @@ for filename in filelist:
                 if file2.endswith(".mat"):
                     result = cmp_mat(file1, file2)
                 else:
-                    print ""
-                    print "Both files need to be of type matlab (i.e. 'xxx.mat')."
-                    print ""
+                    print("")
+                    print("Both files need to be of type matlab (i.e. 'xxx.mat').")
+                    print("")
                     result = False
             else:
                 result = cmp_nn(file1, file2)
 
             if result == False:
                 if is_verbose == True:
-                    print "*** TEST FAILED ***"
-                    print ""
+                    print("*** TEST FAILED ***")
+                    print("")
                     sys.stdout.flush()
                 total_failures += 1
                 continue
@@ -448,11 +448,11 @@ for filename in filelist:
     f.close()
 
     if bad_thing_happened == True:
-        print ""
-        print "*** Error while Running the \'" + current_suite + "\' Suite, Tests not complete!"
+        print("")
+        print("*** Error while Running the \'" + current_suite + "\' Suite, Tests not complete!")
 
-print "\nSummary:"
-print "\tRan a total of " + str(total_comparisons) + " comparisons"
-print "\tThere was " + str(total_failures) + " failure(s)"
-print ""
+print("\nSummary:")
+print("\tRan a total of " + str(total_comparisons) + " comparisons")
+print("\tThere was " + str(total_failures) + " failure(s)")
+print("")
 

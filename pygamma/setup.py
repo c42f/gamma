@@ -17,9 +17,9 @@ except ImportError:
 # Check Python version ASAP
 major, minor = sys.version_info[:2]
 
-if (major != 2) or (minor != 7):
-    msg = "Sorry, PyGAMMA requires Python 2.7, and this is Python %d.%d." % (major, minor)
-    print msg
+if (major == 2) and (minor < 7):
+    msg = "Sorry, PyGAMMA requires Python >= 2.7, and this is Python %d.%d." % (major, minor)
+    print(msg)
     sys.exit(-1)
 
 # The VERSION file will be in the current dir if this is being run from an
@@ -31,7 +31,7 @@ version_path = "VERSION"
 if not os.path.exists(version_path):
     version_path = os.path.join("..", version_path)
 
-version = open(version_path, "rb").read().strip()
+version = open(version_path, "r").read().strip()
 
 NAME = "pygamma"
 DESCRIPTION = "A Python wrapper for the GAMMA C++ Library."

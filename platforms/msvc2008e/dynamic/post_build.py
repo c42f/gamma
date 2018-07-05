@@ -24,7 +24,7 @@ if not os.path.exists(path):
 for filename in ('_pygamma.pyd', 'pygamma.py'):
     source = "../../../i686-pc-msvc/" + filename
     destination = "../../../pygamma/dist_staging/" + filename
-    print "Copying %s to %s..." % (source, destination)
+    print("Copying %s to %s..." % (source, destination))
     shutil.copyfile(source, destination)
 
 version = open("../../../VERSION").read().strip()
