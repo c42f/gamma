@@ -1,5 +1,7 @@
 README
 
+This is an unofficial fork of pygamma to work with python 3.  See
+http://scion.duhs.duke.edu/vespa/project for the official repository.
 
 GAMMA is a C++ library for the simulation of Magnetic Resonance experiments. 
 
