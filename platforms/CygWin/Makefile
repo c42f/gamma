@@ -87,11 +87,11 @@
 DEBUG    = -g #-O2
 
 CC       = gcc
-CFLAGS   = $(DEBUG)
+CFLAGS   = -O3 # $(DEBUG)
 
 CXX       = c++
 CPPFLAGS  = -I../../src
-CXXFLAGS  = $(DEBUG)
+CXXFLAGS  = -O3 # $(DEBUG)
 
 LDFLAGS  = 
 exeext   = .exe
@@ -181,7 +181,11 @@ BOOSTLIBDIR = "C:/Program Files/Boost/boost_1_29_0/libs/python/build/bin/boost_p
 
 include ../../make/MakeMods
 SRCDIR   =  ../../src
-BINDIR   = ../../i686-pc-cygwin
+BINDIR   = ../../x64-pc-cygwin
+
+# Create the output directory immediately. In principle it would be "nicer" to
+# do this inside a rule but doing it here is a whole heap simpler.
+$(shell mkdir -p $(BINDIR))
 
 LIB_SRCS = $(ALLCCFILES)
 LIB_OBJS = $(addsuffix .o, $(addprefix $(BINDIR)/, $(ALLFILES)))
@@ -406,7 +410,7 @@ ${BINDIR}/%.po : ${SRCDIR}/%.cc
 #									#
 #########################################################################
 
-all: $(BINDIR)/$(DLL_NAME)
+all: dll
 
 lib: $(BINDIR)/$(LIB_NAME)
 dll: $(BINDIR)/$(DLL_NAME)
@@ -926,32 +930,37 @@ crap:
 # distributed files in this directory. Do not worry about this for any builds   #
 # and or runs of GAMMA programs.						#
 #										#
+#
+# (For now this is all commented out to revive the cygwin build to
+#  mostly-working status)
+#
 #################################################################################
 
-THISDIR       = CygWin
-PRIMALPLAT    = "using CygWin development environment"
-PRIMALMAKEDIR = ../make
-MAINMAKEDIR   = ../../make
-SUBDIRS       =
-HDRFILES      =
-CCFILES       =
-HTMLFILES     = index.html
-IMGFILES      = 
-INCFILES      = Makefile CygWinHeap.reg gamma.in cleanup.bat
-DOSCLEANFILES = Makefile gamma.in
-UPDATEFILES   = ${HTMLFILES}
-DISTSUBDIRS   =
-MODLABEL      = ${THISDIR}
 
-include ${PRIMALMAKEDIR}/MakeDists
-include ${PRIMALMAKEDIR}/CleanDir
-include ${PRIMALMAKEDIR}/MakeHelp
-include ${MAINMAKEDIR}/MakeGam
-include ${MAINMAKEDIR}/Distribute
-include ${MAINMAKEDIR}/Update
-include ${MAINMAKEDIR}/DieDOSDie
-include ${MAINMAKEDIR}/CopyDelDir
-include ${MAINMAKEDIR}/TarZipDir
+# THISDIR       = CygWin
+# PRIMALPLAT    = "using CygWin development environment"
+# PRIMALMAKEDIR = ../make
+# MAINMAKEDIR   = ../../make
+# SUBDIRS       =
+# HDRFILES      =
+# CCFILES       =
+# HTMLFILES     = index.html
+# IMGFILES      =
+# INCFILES      = Makefile CygWinHeap.reg gamma.in cleanup.bat
+# DOSCLEANFILES = Makefile gamma.in
+# UPDATEFILES   = ${HTMLFILES}
+# DISTSUBDIRS   =
+# MODLABEL      = ${THISDIR}
+#
+# include ${PRIMALMAKEDIR}/MakeDists
+# include ${PRIMALMAKEDIR}/CleanDir
+# include ${PRIMALMAKEDIR}/MakeHelp
+# include ${MAINMAKEDIR}/MakeGam
+# include ${MAINMAKEDIR}/Distribute
+# include ${MAINMAKEDIR}/Update
+# include ${MAINMAKEDIR}/DieDOSDie
+# include ${MAINMAKEDIR}/CopyDelDir
+# include ${MAINMAKEDIR}/TarZipDir
 
 #################################################################################
 #										#
@@ -964,36 +973,36 @@ include ${MAINMAKEDIR}/TarZipDir
 #										#
 #################################################################################
 
-GVER          = 4.1.0
-BINDISTFILES  = ${INSTALLBINDIR}/${GSCRIPT} ${INSTALLBINDIR}/${DLL_NAME}
-BINDISTFILES += ${INSTALLLIBDIR}/${DLL_EXP_LIB}
-BINDISTFILES += $(addprefix $(GSRCDIR)/, $(ALLHFILES))
-BINDISTFILES += $(addprefix $(GSRCDIR)/, gamma.h)
-BINDISTFILES += $(addprefix $(GSRCDIR)/, GamGen.h)
-BINDISTFILES += ./Readme.txt
-BINTARFILE    = gamma-${GVER}.tar
-BINZIPFILE    = ${BINTARFILE}.gz
-BINFTPDIR     = ../../ftp/gamma-${GVER}/cygwin
+# GVER          = 4.1.0
+# BINDISTFILES  = ${INSTALLBINDIR}/${GSCRIPT} ${INSTALLBINDIR}/${DLL_NAME}
+# BINDISTFILES += ${INSTALLLIBDIR}/${DLL_EXP_LIB}
+# BINDISTFILES += $(addprefix $(GSRCDIR)/, $(ALLHFILES))
+# BINDISTFILES += $(addprefix $(GSRCDIR)/, gamma.h)
+# BINDISTFILES += $(addprefix $(GSRCDIR)/, GamGen.h)
+# BINDISTFILES += ./Readme.txt
+# BINTARFILE    = gamma-${GVER}.tar
+# BINZIPFILE    = ${BINTARFILE}.gz
+# BINFTPDIR     = ../../ftp/gamma-${GVER}/cygwin
+#
+# ./${BINTARFILE}: install
+# 	@echo " * Generating Tar File Of Binaries ${BINTAR}"
+# 	@rm -f ${BINTARFILE}
+# 	@tar -cvf ${BINTARFILE} ${BINDISTFILES}
+#
+# ./${BINZIPFILE}: ./${BINTARFILE}
+# 	@echo " * Compressing Tar File Using GnuZip To Produce ${BINZIPFILE}"
+# 	@rm -f ${BINZIPFILE}
+# 	@gzip ${BINTARFILE}
+# 	@echo " * Removing The Original Tar File"
+# 	@rm -f ${BINTARFILE}
+#
+# ${BINFTPDIR}/${BINZIPFILE}: ./${BINZIPFILE}
+# 	@echo " * Moving GAMMA Binaary Distrutionb To FTP Directory"
+# 	@echo " * FTP Directory Is ${BINFTPDIR}"
+# 	@mv -f ./${BINZIPFILE} ${BINFTPDIR}/${BINZIPFILE}
+#
+# bindist: ${BINFTPDIR}/${BINZIPFILE}
 
-./${BINTARFILE}: install
-	@echo " * Generating Tar File Of Binaries ${BINTAR}"
-	@rm -f ${BINTARFILE}
-	@tar -cvf ${BINTARFILE} ${BINDISTFILES} 
-
-./${BINZIPFILE}: ./${BINTARFILE}
-	@echo " * Compressing Tar File Using GnuZip To Produce ${BINZIPFILE}"
-	@rm -f ${BINZIPFILE}
-	@gzip ${BINTARFILE}
-	@echo " * Removing The Original Tar File"
-	@rm -f ${BINTARFILE}
-
-${BINFTPDIR}/${BINZIPFILE}: ./${BINZIPFILE}
-	@echo " * Moving GAMMA Binaary Distrutionb To FTP Directory"
-	@echo " * FTP Directory Is ${BINFTPDIR}"
-	@mv -f ./${BINZIPFILE} ${BINFTPDIR}/${BINZIPFILE}
-
-bindist: ${BINFTPDIR}/${BINZIPFILE}
-	
 #binfiles: force
 #	tar -cvf gamma-${GVER}.tar ${BINDISTFILES} 
 #	gzip gamma-${GVER}.tar
